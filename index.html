@@ -1,13 +1,158 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>11B4 Literaria</title>
-  <meta http-equiv="refresh" content="0; url=home.html" />
-  <link rel="canonical" href="home.html" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trang chủ — 11B4 Literaria</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { opacity: 0; transition: opacity 0.6s ease; }
+    body.page-loaded { opacity: 1; }
+  </style>
 </head>
-<body>
-  <p>Đang chuyển hướng... Nếu không tự động chuyển, bấm vào <a href="home.html">Trang chủ</a>.</p>
+<body class="home-page">
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="navbar-logo">Literaria <span>11B4</span></a>
+      <div class="menu-toggle">
+        <span></span><span></span><span></span>
+      </div>
+      <div class="navbar-links">
+        <a href="index.html" class="active">Trang chủ</a>
+        <a href="about.html">Giới thiệu</a>
+        <a href="dreams.html">Tác phẩm</a>
+        <a href="activities.html">Hoạt động</a>
+        <a href="lessons.html">Bài học</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="page-content">
+    <div class="page-container">
+      <div class="home-hero">
+        <div class="mobile-quote-icon fade-in home-sequence" aria-hidden="true">
+          <i class="fa-solid fa-book-open"></i>
+        </div>
+        <div class="quote fade-in home-sequence typing-quote quote-typing-active"
+             data-quotes="Vì lợi ích mười năm thì phải trồng cây, vì lợi ích trăm năm thì phải trồng người.|Non sông Việt Nam có trở nên tươi đẹp hay không, dân tộc Việt Nam có bước tới đài vinh quang để sánh vai với các cường quốc năm châu được hay không, chính là nhờ một phần lớn ở công học tập của các em.|Một dân tộc dốt là một dân tộc yếu.|Thanh niên là người chủ tương lai của nước nhà.|Một năm khởi đầu từ mùa xuân. Một đời khởi đầu từ tuổi trẻ. Tuổi trẻ là mùa xuân của xã hội.|Đâu cần thanh niên có, việc gì khó có thanh niên.|Học để làm việc, làm người, làm cán bộ. Học để phụng sự Đoàn thể, giai cấp và nhân dân, Tổ quốc và nhân loại.|Có tài mà không có đức là người vô dụng. Có đức mà không có tài thì làm việc gì cũng khó.|Tuổi nhỏ làm việc nhỏ, tùy theo sức của mình.|Đường đi khó không khó vì ngăn sông cách núi, mà khó vì lòng người ngại núi e sông.|Có công mài sắt, có ngày nên kim.|Có chí thì nên.|Lửa thử vàng, gian nan thử sức.|Thất bại là mẹ thành công.|Đi một ngày đàng, học một sàng khôn.|Học ăn, học nói, học gói, học mở.|Không thầy đố mày làm nên.|Muốn sang thì bắc cầu Kiều, muốn con hay chữ thì yêu lấy thầy.|Người không học như ngọc không mài.|Có chí làm quan, có gan làm giàu."
+             data-authors="Hồ Chí Minh|Hồ Chí Minh|Hồ Chí Minh|Hồ Chí Minh|Hồ Chí Minh|Hồ Chí Minh|Hồ Chí Minh|Hồ Chí Minh|Hồ Chí Minh|Nguyễn Bá Học|Tục ngữ Việt Nam|Tục ngữ Việt Nam|Tục ngữ Việt Nam|Tục ngữ Việt Nam|Tục ngữ Việt Nam|Tục ngữ Việt Nam|Tục ngữ Việt Nam|Ca dao Việt Nam|Tục ngữ Việt Nam|Tục ngữ Việt Nam"></div>
+        <div class="quote-author fade-in home-sequence typing-quote-author">
+          — Hồ Chí Minh —
+        </div>
+
+        <div class="divider fade-in home-sequence"></div>
+
+        <h1 class="intro-title fade-in home-sequence">11B4 Literaria</h1>
+
+        <p class="intro-text fade-in home-sequence">
+          Nơi lưu giữ bài học, sáng tạo và kỷ niệm của tập thể 11B4.
+          Một cuốn sổ tay học trò được số hóa theo cách hiện đại và giàu cảm xúc.
+        </p>
+
+        <div class="home-badges fade-in home-sequence">
+          <span class="home-badge">Năm học 2025–2026</span>
+          <span class="home-badge">Không gian Ngữ văn</span>
+          <span class="home-badge">Ký ức tập thể 11B4</span>
+        </div>
+
+        <ul class="home-focus-strip fade-in home-sequence">
+          <li><i class="fa-solid fa-book-open-reader" aria-hidden="true"></i>Học để hiểu sâu</li>
+          <li><i class="fa-solid fa-film" aria-hidden="true"></i>Sáng tạo để kể chuyện</li>
+          <li><i class="fa-regular fa-clock" aria-hidden="true"></i>Ghi lại để nhớ lâu</li>
+        </ul>
+
+        <div class="home-actions fade-in home-sequence">
+          <a href="dreams.html">Xem thư viện sáng tạo</a>
+          <a href="lessons.html">Đọc bài học Ngữ văn</a>
+        </div>
+
+        <div class="scroll-hint fade-in home-sequence">
+          &#8595; Khám phá
+        </div>
+
+      </div>
+
+      <section class="home-wide section fade-in">
+        <div class="home-wide-inner home-split reveal-lift">
+          <div>
+            <p class="home-eyebrow">Không gian học trò</p>
+            <h2>Rộng hơn, thoáng hơn, và nhiều điều để khám phá khi kéo xuống</h2>
+          </div>
+          <p class="mobile-trim-text">
+            11B4 Literaria là nơi mỗi bài học được tóm gọn để dễ nắm, mỗi tác phẩm sáng tạo được giữ đúng tinh thần,
+            và mỗi hoạt động đều được ghi lại như một lát cắt của tuổi trẻ.
+          </p>
+        </div>
+      </section>
+
+      <section class="home-wide section fade-in">
+        <div class="home-wide-inner">
+          <div class="home-journey-list">
+            <article class="home-journey-item fade-in reveal-lift">
+              <span>01</span>
+              <div>
+                <h3>Học để hiểu</h3>
+                <p>Tập trung vào trọng tâm tác phẩm và liên kết kiến thức để ôn tập nhanh.</p>
+              </div>
+            </article>
+            <article class="home-journey-item fade-in reveal-lift">
+              <span>02</span>
+              <div>
+                <h3>Sáng tạo để kể</h3>
+                <p>Biến cảm nhận văn học thành tranh, video và những sản phẩm giàu cảm xúc.</p>
+              </div>
+            </article>
+            <article class="home-journey-item fade-in reveal-lift mobile-trim-item">
+              <span>03</span>
+              <div>
+                <h3>Ghi nhớ để trưởng thành</h3>
+                <p>Lưu lại hành trình của lớp để mỗi cột mốc đều có ý nghĩa theo thời gian.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="home-wide section fade-in">
+        <div class="home-wide-inner home-link-rail">
+          <a class="home-rail-link reveal-lift" href="lessons.html">
+            <i class="fa-solid fa-book-open"></i>
+            <div>
+              <h3>Bài học</h3>
+              <p class="mobile-trim-text">Tóm tắt gọn, mở chi tiết khi cần.</p>
+            </div>
+          </a>
+          <a class="home-rail-link reveal-lift" href="dreams.html">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            <div>
+              <h3>Tác phẩm</h3>
+              <p class="mobile-trim-text">Không gian trưng bày sáng tạo của lớp.</p>
+            </div>
+          </a>
+          <a class="home-rail-link reveal-lift" href="activities.html">
+            <i class="fa-solid fa-timeline"></i>
+            <div>
+              <h3>Hoạt động</h3>
+              <p class="mobile-trim-text">Dòng thời gian hành trình 11B4.</p>
+            </div>
+          </a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p class="footer-quote">“Văn chương là tiếng lòng của người.”</p>
+    <p>11B4 Literaria &mdash; 2025 - 2026</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
