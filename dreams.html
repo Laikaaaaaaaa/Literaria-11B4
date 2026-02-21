@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tác phẩm — 11B4 Literaria</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { opacity: 0; transition: opacity 0.6s ease; }
+    body.page-loaded { opacity: 1; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="home.html" class="navbar-logo">Literaria <span>11B4</span></a>
+      <div class="menu-toggle">
+        <span></span><span></span><span></span>
+      </div>
+      <div class="navbar-links">
+        <a href="home.html">Trang chủ</a>
+        <a href="about.html">Giới thiệu</a>
+        <a href="dreams.html" class="active">Tác phẩm</a>
+        <a href="activities.html">Hoạt động</a>
+        <a href="lessons.html">Bài học</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="page-content">
+    <div class="page-container">
+
+      <section class="section">
+        <div class="section-title fade-in">
+          <h2>Tác phẩm sáng tạo</h2>
+          <p>Không gian trưng bày tranh vẽ, video và sản phẩm hoạt hình của lớp</p>
+        </div>
+
+        <p class="dreams-intro fade-in">
+          Đây là khu lưu trữ các tác phẩm cụ thể của học sinh: tranh minh họa, video dự án,
+          video kể chuyện và sản phẩm hoạt hình. Mỗi khu trưng bày là một tác phẩm riêng biệt,
+          có ý tưởng, câu chuyện và dấu ấn của từng cá nhân hoặc nhóm.
+        </p>
+
+        <!-- DREAMS LAND -->
+        <div class="dreams-land">
+
+          <article class="dream-plot fade-in"
+                   data-modal
+                   data-type="image"
+                   data-src=""
+                   data-title="Tranh minh họa: Đôi mắt người Sơn Tây"
+                   data-author="Nhóm 1 — Lan Anh, Minh Thu, Đức Huy"
+                   data-desc="Bức tranh thể hiện hình ảnh người phụ nữ trong bài thơ của Quang Dũng, với những nét vẽ nhẹ nhàng, man mác nỗi nhớ.">
+            <div class="dream-plot-media">
+              <div class="placeholder">Hình ảnh tác phẩm</div>
+              <!-- <img src="images/dream-01.jpg" alt="Tranh minh họa"> -->
+            </div>
+            <div class="dream-plot-content">
+              <p class="dream-plot-tag">Khu trưng bày 01</p>
+              <h3>Tranh minh họa: Đôi mắt người Sơn Tây</h3>
+              <p class="dream-plot-author">Nhóm 1 — Lan Anh, Minh Thu, Đức Huy</p>
+              <p>Bức tranh thể hiện hình ảnh người phụ nữ trong bài thơ của Quang Dũng.</p>
+              <button type="button" class="dream-plot-btn">Xem chi tiết</button>
+            </div>
+          </article>
+
+          <article class="dream-plot fade-in"
+                   data-modal
+                   data-type="video"
+                   data-src=""
+                   data-title="Phim ngắn: Những ngày không tên"
+                   data-author="Nhóm 2 — Thành Đạt, Hải Yến, Quốc Bảo"
+                   data-desc="Một phim ngắn kể về những kỷ niệm giản dị của thời học trò, những khoảnh khắc tưởng như bình thường nhưng lại là điều đáng nhớ nhất.">
+            <div class="dream-plot-media">
+              <div class="placeholder">Ảnh đại diện video</div>
+              <div class="play-icon"></div>
+              <!-- <img src="images/dream-02-thumb.jpg" alt="Phim ngắn"> -->
+            </div>
+            <div class="dream-plot-content">
+              <p class="dream-plot-tag">Khu trưng bày 02</p>
+              <h3>Phim ngắn: Những ngày không tên</h3>
+              <p class="dream-plot-author">Nhóm 2 — Thành Đạt, Hải Yến, Quốc Bảo</p>
+              <p>Phim ngắn về những kỷ niệm giản dị của thời học trò.</p>
+              <button type="button" class="dream-plot-btn">Xem chi tiết</button>
+            </div>
+          </article>
+
+          <article class="dream-plot fade-in"
+                   data-modal
+                   data-type="image"
+                   data-src=""
+                   data-title="Ảnh minh họa: Độc Tiểu Thanh ký"
+                   data-author="Nhóm 3 — Thu Hương, Văn Khoa"
+                   data-desc="Bộ ảnh chụp và chỉnh sửa theo phong cách cổ điển, lấy cảm hứng từ bài thơ Độc Tiểu Thanh ký của Nguyễn Du.">
+            <div class="dream-plot-media">
+              <div class="placeholder">Hình ảnh tác phẩm</div>
+              <!-- <img src="images/dream-03.jpg" alt="Ảnh minh họa"> -->
+            </div>
+            <div class="dream-plot-content">
+              <p class="dream-plot-tag">Khu trưng bày 03</p>
+              <h3>Ảnh minh họa: Độc Tiểu Thanh ký</h3>
+              <p class="dream-plot-author">Nhóm 3 — Thu Hương, Văn Khoa</p>
+              <p>Bộ ảnh phong cách cổ điển lấy cảm hứng từ thơ Nguyễn Du.</p>
+              <button type="button" class="dream-plot-btn">Xem chi tiết</button>
+            </div>
+          </article>
+
+          <article class="dream-plot fade-in"
+                   data-modal
+                   data-type="video"
+                   data-src=""
+                   data-title="Video kể chuyện: Chí Phèo dưới góc nhìn hiện đại"
+                   data-author="Nhóm 4 — Hoàng Nam, Thùy Linh, Phương Anh"
+                   data-desc="Nhóm đã kể lại câu chuyện Chí Phèo bằng hình thức vlog, đặt nhân vật vào bối cảnh hiện đại để tạo góc nhìn mới.">
+            <div class="dream-plot-media">
+              <div class="placeholder">Ảnh đại diện video</div>
+              <div class="play-icon"></div>
+              <!-- <img src="images/dream-04-thumb.jpg" alt="Video kể chuyện"> -->
+            </div>
+            <div class="dream-plot-content">
+              <p class="dream-plot-tag">Khu trưng bày 04</p>
+              <h3>Video kể chuyện: Chí Phèo hiện đại</h3>
+              <p class="dream-plot-author">Nhóm 4 — Hoàng Nam, Thùy Linh, Phương Anh</p>
+              <p>Kể lại Chí Phèo bằng hình thức vlog với góc nhìn hiện đại.</p>
+              <button type="button" class="dream-plot-btn">Xem chi tiết</button>
+            </div>
+          </article>
+
+          <article class="dream-plot fade-in"
+                   data-modal
+                   data-type="image"
+                   data-src=""
+                   data-title="Tranh vẽ: Cảnh khuya"
+                   data-author="Ngọc Trâm"
+                   data-desc="Bức tranh màu nước về cảnh đêm rừng núi trong bài thơ Cảnh khuya của Hồ Chí Minh. Màu sắc nhẹ nhàng, gợi lên sự tĩnh lặng.">
+            <div class="dream-plot-media">
+              <div class="placeholder">Hình ảnh tác phẩm</div>
+              <!-- <img src="images/dream-05.jpg" alt="Tranh vẽ"> -->
+            </div>
+            <div class="dream-plot-content">
+              <p class="dream-plot-tag">Khu trưng bày 05</p>
+              <h3>Tranh vẽ: Cảnh khuya</h3>
+              <p class="dream-plot-author">Ngọc Trâm</p>
+              <p>Tranh màu nước về cảnh đêm rừng núi trong thơ Hồ Chí Minh.</p>
+              <button type="button" class="dream-plot-btn">Xem chi tiết</button>
+            </div>
+          </article>
+
+          <article class="dream-plot fade-in"
+                   data-modal
+                   data-type="image"
+                   data-src=""
+                   data-title="Poster: Ngữ văn và đời sống"
+                   data-author="Nhóm 5 — Minh Quân, Kim Ngân, Tuấn Anh"
+                   data-desc="Poster thiết kế trên Canva, thể hiện mối liên hệ giữa văn chương và những vấn đề xã hội hiện đại.">
+            <div class="dream-plot-media">
+              <div class="placeholder">Hình ảnh tác phẩm</div>
+              <!-- <img src="images/dream-06.jpg" alt="Poster"> -->
+            </div>
+            <div class="dream-plot-content">
+              <p class="dream-plot-tag">Khu trưng bày 06</p>
+              <h3>Poster: Ngữ văn và đời sống</h3>
+              <p class="dream-plot-author">Nhóm 5 — Minh Quân, Kim Ngân, Tuấn Anh</p>
+              <p>Poster về mối liên hệ giữa văn chương và đời sống hiện đại.</p>
+              <button type="button" class="dream-plot-btn">Xem chi tiết</button>
+            </div>
+          </article>
+
+        </div>
+        <!-- End dreams land -->
+
+      </section>
+
+    </div>
+  </main>
+
+  <!-- MODAL -->
+  <div class="modal-overlay">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <div class="modal-media"></div>
+      <div class="modal-info">
+        <h3></h3>
+        <div class="modal-author"></div>
+        <div class="modal-desc"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p class="footer-quote">“Văn chương là tiếng lòng của người.”</p>
+    <p>11B4 Literaria &mdash; 2025 - 2026</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
