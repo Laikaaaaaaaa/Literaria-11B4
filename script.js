@@ -174,8 +174,37 @@ document.addEventListener('DOMContentLoaded', function () {
   const galleryCards = document.querySelectorAll('[data-modal]');
   const modalOverlay = document.querySelector('.modal-overlay');
   const modalClose = document.querySelector('.modal-close');
+  const lazyMediaTargets = document.querySelectorAll('[data-lazy-src], [data-thumb-src]');
 
   if (galleryCards.length > 0 && modalOverlay) {
+    // Lazy-load thumbnails and poster frames to reduce initial weight
+    if (lazyMediaTargets.length > 0 && 'IntersectionObserver' in window) {
+      const lazyObserver = new IntersectionObserver(function (entries, observer) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+
+          const target = entry.target;
+          const lazySrc = target.getAttribute('data-lazy-src');
+          const thumbSrc = target.getAttribute('data-thumb-src');
+
+          if (lazySrc) {
+            target.setAttribute('src', lazySrc);
+            target.removeAttribute('data-lazy-src');
+          }
+
+          if (thumbSrc && target.tagName.toLowerCase() === 'video') {
+            target.setAttribute('src', thumbSrc);
+            target.load();
+            target.removeAttribute('data-thumb-src');
+          }
+
+          observer.unobserve(target);
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px 120px 0px' });
+
+      lazyMediaTargets.forEach(function (el) { lazyObserver.observe(el); });
+    }
+
     galleryCards.forEach(function (card) {
       card.addEventListener('click', function () {
         const type = card.getAttribute('data-type') || 'image';
@@ -195,17 +224,30 @@ document.addEventListener('DOMContentLoaded', function () {
           video.src = src;
           video.controls = true;
           video.autoplay = true;
+          video.preload = 'metadata';
           mediaContainer.appendChild(video);
         } else if (type === 'audio') {
+          const audioWrap = document.createElement('div');
+          audioWrap.className = 'audio-player';
+
           const audio = document.createElement('audio');
           audio.src = src;
           audio.controls = true;
           audio.autoplay = true;
-          mediaContainer.appendChild(audio);
+          audio.preload = 'metadata';
+
+          const label = document.createElement('div');
+          label.className = 'audio-label';
+          label.textContent = 'Đang phát';
+
+          audioWrap.appendChild(audio);
+          audioWrap.appendChild(label);
+          mediaContainer.appendChild(audioWrap);
         } else {
           const img = document.createElement('img');
           img.src = src;
           img.alt = title;
+          img.loading = 'lazy';
           mediaContainer.appendChild(img);
         }
 
@@ -222,9 +264,16 @@ document.addEventListener('DOMContentLoaded', function () {
     function closeModal() {
       modalOverlay.classList.remove('active');
       document.body.style.overflow = '';
-      // Stop video if playing
-      const video = modalOverlay.querySelector('video');
-      if (video) video.pause();
+
+      const mediaContainer = modalOverlay.querySelector('.modal-media');
+      if (mediaContainer) {
+        mediaContainer.querySelectorAll('video, audio').forEach(function (el) {
+          el.pause();
+          el.removeAttribute('src');
+          if (el.load) el.load();
+        });
+        mediaContainer.innerHTML = '';
+      }
     }
 
     if (modalClose) {
