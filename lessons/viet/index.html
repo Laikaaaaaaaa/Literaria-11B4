@@ -6,13 +6,121 @@
   <title>Viết — 11B4 Literaria</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../style.css?v=20260302-1">
-  <style>body { opacity: 0; transition: opacity 0.6s ease; } body.page-loaded { opacity: 1; }</style>
+  <link rel="stylesheet" href="../../style.css?v=20260303-1">
+  <style>
+    body { opacity: 0; transition: opacity 0.6s ease; }
+    body.page-loaded { opacity: 1; }
+
+    .viet-showcase + .viet-showcase {
+      margin-top: 1.2rem;
+    }
+
+    .viet-showcase h3 {
+      margin-bottom: 0.25rem;
+    }
+
+    .viet-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.8rem;
+    }
+
+    .viet-photo-link {
+      display: block;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(74, 103, 65, 0.16);
+      background: #f1f3ee;
+    }
+
+    .viet-photo-link img {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .viet-photo-link:hover img {
+      transform: scale(1.03);
+    }
+  </style>
 </head>
 <body>
-  <nav class="navbar"><div class="navbar-inner"><a href="../../index.html" class="navbar-logo">Literaria <span>11B4</span></a><div class="menu-toggle"><span></span><span></span><span></span></div><div class="navbar-links"><a href="../../index.html">Trang chủ</a><a href="../../about.html">Giới thiệu</a><a href="../../dreams.html">Tác phẩm</a><a href="../../activities.html">Hoạt động</a><a href="../" class="active">Bài học</a></div></div></nav>
-  <main class="page-content"><div class="page-container"><section class="section lesson-detail-shell"><a href="../" class="lesson-back">&larr; Quay lại danh sách chuyên mục</a><article class="lesson-entry fade-in"><div class="lesson-meta">Chuyên mục 05</div><h2>Viết</h2><div class="lesson-body"><p>Thực hành viết đoạn và bài hoàn chỉnh theo tiêu chí chấm điểm: đúng yêu cầu, rõ luận điểm, dẫn chứng phù hợp và diễn đạt mạch lạc.</p><p><strong>Trọng tâm ôn tập:</strong> viết câu mở đoạn tốt, liên kết ý tự nhiên, dùng từ chính xác và kiểm tra lỗi trước khi nộp.</p><div class="lesson-entry-actions"><a class="lesson-link" href="../tap-lam-van/">Quay lại mục Tập làm văn</a></div></div></article></section></div></main>
-  <footer class="site-footer"><p class="footer-quote">“Văn chương là tiếng lòng của người.”</p><p>11B4 Literaria &mdash; 2025 - 2026</p></footer>
-  <script src="../../script.js?v=20260302-1"></script>
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="../../index.html" class="navbar-logo">Literaria <span>11B4</span></a>
+      <div class="menu-toggle"><span></span><span></span><span></span></div>
+      <div class="navbar-links">
+        <a href="../../index.html">Trang chủ</a>
+        <a href="../../about.html">Giới thiệu</a>
+        <a href="../../dreams.html">Tác phẩm</a>
+        <a href="../../activities.html">Hoạt động</a>
+        <a href="../" class="active">Bài học</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="page-content">
+    <div class="page-container">
+      <section class="section lesson-detail-shell">
+        <a href="../" class="lesson-back">&larr; Quay lại danh sách chuyên mục</a>
+
+        <article class="lesson-entry fade-in">
+          <div class="lesson-meta">Chuyên mục 05</div>
+          <h2>Viết</h2>
+          <div class="lesson-body">
+            <p>Trưng bày bài viết kèm ảnh chụp theo từng bạn trong thư mục <strong>static/images/viet</strong>.</p>
+            <p><strong>Gợi ý:</strong> bấm vào từng ảnh để mở ảnh gốc ở tab mới.</p>
+          </div>
+        </article>
+
+        <article class="lesson-entry fade-in viet-showcase">
+          <div class="lesson-meta">Bộ ảnh 01</div>
+          <h3>Muối của rừng — Khánh Ngọc</h3>
+          <div class="viet-gallery">
+            <a class="viet-photo-link" href="../../static/images/viet/Muoi_cua_rung-Kh%C3%A1nh%20Ng%E1%BB%8Dc/1.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../../static/images/viet/Muoi_cua_rung-Kh%C3%A1nh%20Ng%E1%BB%8Dc/1.jpg" alt="Muối của rừng - Khánh Ngọc - ảnh 1"></a>
+            <a class="viet-photo-link" href="../../static/images/viet/Muoi_cua_rung-Kh%C3%A1nh%20Ng%E1%BB%8Dc/2.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../../static/images/viet/Muoi_cua_rung-Kh%C3%A1nh%20Ng%E1%BB%8Dc/2.jpg" alt="Muối của rừng - Khánh Ngọc - ảnh 2"></a>
+            <a class="viet-photo-link" href="../../static/images/viet/Muoi_cua_rung-Kh%C3%A1nh%20Ng%E1%BB%8Dc/3.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../../static/images/viet/Muoi_cua_rung-Kh%C3%A1nh%20Ng%E1%BB%8Dc/3.jpg" alt="Muối của rừng - Khánh Ngọc - ảnh 3"></a>
+            <a class="viet-photo-link" href="../../static/images/viet/Muoi_cua_rung-Kh%C3%A1nh%20Ng%E1%BB%8Dc/4.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../../static/images/viet/Muoi_cua_rung-Kh%C3%A1nh%20Ng%E1%BB%8Dc/4.jpg" alt="Muối của rừng - Khánh Ngọc - ảnh 4"></a>
+          </div>
+        </article>
+
+        <article class="lesson-entry fade-in viet-showcase">
+          <div class="lesson-meta">Bộ ảnh 02</div>
+          <h3>Muối của rừng — Hoàng Phú</h3>
+          <div class="viet-gallery">
+            <a class="viet-photo-link" href="../../static/images/viet/Mu%E1%BB%91i%20c%E1%BB%A7a%20r%E1%BB%ABng-Ho%C3%A0ng%20Ph%C3%BA/z7570942112406_3abe294d341a1c8c45a7aa9318ff2a8c.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../../static/images/viet/Mu%E1%BB%91i%20c%E1%BB%A7a%20r%E1%BB%ABng-Ho%C3%A0ng%20Ph%C3%BA/z7570942112406_3abe294d341a1c8c45a7aa9318ff2a8c.jpg" alt="Muối của rừng - Hoàng Phú - ảnh 1"></a>
+            <a class="viet-photo-link" href="../../static/images/viet/Mu%E1%BB%91i%20c%E1%BB%A7a%20r%E1%BB%ABng-Ho%C3%A0ng%20Ph%C3%BA/z7570942768443_61c6a4eff2ce19132bcc8328d52662ff.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../../static/images/viet/Mu%E1%BB%91i%20c%E1%BB%A7a%20r%E1%BB%ABng-Ho%C3%A0ng%20Ph%C3%BA/z7570942768443_61c6a4eff2ce19132bcc8328d52662ff.jpg" alt="Muối của rừng - Hoàng Phú - ảnh 2"></a>
+            <a class="viet-photo-link" href="../../static/images/viet/Mu%E1%BB%91i%20c%E1%BB%A7a%20r%E1%BB%ABng-Ho%C3%A0ng%20Ph%C3%BA/z7570943184197_e45ac3eb9e59fa8d1821d48e86f6943b.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../../static/images/viet/Mu%E1%BB%91i%20c%E1%BB%A7a%20r%E1%BB%ABng-Ho%C3%A0ng%20Ph%C3%BA/z7570943184197_e45ac3eb9e59fa8d1821d48e86f6943b.jpg" alt="Muối của rừng - Hoàng Phú - ảnh 3"></a>
+          </div>
+        </article>
+
+        <article class="lesson-entry fade-in viet-showcase">
+          <div class="lesson-meta">Bộ ảnh 03</div>
+          <h3>Muối của rừng — Trâm Anh</h3>
+          <div class="viet-gallery">
+            <a class="viet-photo-link" href="../../static/images/viet/Mu%E1%BB%91i%20c%E1%BB%A7a%20r%E1%BB%ABng-Tr%C3%A2m%20Anh/1.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../../static/images/viet/Mu%E1%BB%91i%20c%E1%BB%A7a%20r%E1%BB%ABng-Tr%C3%A2m%20Anh/1.jpg" alt="Muối của rừng - Trâm Anh - ảnh 1"></a>
+            <a class="viet-photo-link" href="../../static/images/viet/Mu%E1%BB%91i%20c%E1%BB%A7a%20r%E1%BB%ABng-Tr%C3%A2m%20Anh/2.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../../static/images/viet/Mu%E1%BB%91i%20c%E1%BB%A7a%20r%E1%BB%ABng-Tr%C3%A2m%20Anh/2.jpg" alt="Muối của rừng - Trâm Anh - ảnh 2"></a>
+            <a class="viet-photo-link" href="../../static/images/viet/Mu%E1%BB%91i%20c%E1%BB%A7a%20r%E1%BB%ABng-Tr%C3%A2m%20Anh/3.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../../static/images/viet/Mu%E1%BB%91i%20c%E1%BB%A7a%20r%E1%BB%ABng-Tr%C3%A2m%20Anh/3.jpg" alt="Muối của rừng - Trâm Anh - ảnh 3"></a>
+            <a class="viet-photo-link" href="../../static/images/viet/Mu%E1%BB%91i%20c%E1%BB%A7a%20r%E1%BB%ABng-Tr%C3%A2m%20Anh/4.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../../static/images/viet/Mu%E1%BB%91i%20c%E1%BB%A7a%20r%E1%BB%ABng-Tr%C3%A2m%20Anh/4.jpg" alt="Muối của rừng - Trâm Anh - ảnh 4"></a>
+            <a class="viet-photo-link" href="../../static/images/viet/Mu%E1%BB%91i%20c%E1%BB%A7a%20r%E1%BB%ABng-Tr%C3%A2m%20Anh/5.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../../static/images/viet/Mu%E1%BB%91i%20c%E1%BB%A7a%20r%E1%BB%ABng-Tr%C3%A2m%20Anh/5.jpg" alt="Muối của rừng - Trâm Anh - ảnh 5"></a>
+            <a class="viet-photo-link" href="../../static/images/viet/Mu%E1%BB%91i%20c%E1%BB%A7a%20r%E1%BB%ABng-Tr%C3%A2m%20Anh/6.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../../static/images/viet/Mu%E1%BB%91i%20c%E1%BB%A7a%20r%E1%BB%ABng-Tr%C3%A2m%20Anh/6.jpg" alt="Muối của rừng - Trâm Anh - ảnh 6"></a>
+            <a class="viet-photo-link" href="../../static/images/viet/Mu%E1%BB%91i%20c%E1%BB%A7a%20r%E1%BB%ABng-Tr%C3%A2m%20Anh/7.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../../static/images/viet/Mu%E1%BB%91i%20c%E1%BB%A7a%20r%E1%BB%ABng-Tr%C3%A2m%20Anh/7.jpg" alt="Muối của rừng - Trâm Anh - ảnh 7"></a>
+          </div>
+          <div class="lesson-entry-actions" style="margin-top: 1rem;">
+            <a class="lesson-link" href="../tap-lam-van/">Quay lại mục Tập làm văn</a>
+          </div>
+        </article>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-quote">“Văn chương là tiếng lòng của người.”</p>
+    <p>11B4 Literaria &mdash; 2025 - 2026</p>
+  </footer>
+  <script src="../../script.js?v=20260303-2"></script>
 </body>
 </html>
