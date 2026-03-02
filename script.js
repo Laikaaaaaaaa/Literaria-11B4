@@ -390,9 +390,30 @@ document.addEventListener('DOMContentLoaded', function () {
   const hardcodedPptxModals = document.querySelectorAll('.read-modal-overlay[id^="pptx-modal-"]');
 
   if (hardcodedPptxTriggers.length > 0 && hardcodedPptxModals.length > 0) {
+    function buildHardcodedPptxEmbedUrl(filePath) {
+      try {
+        const absoluteFileUrl = new URL(filePath, window.location.href).href;
+        if (window.location.protocol === 'http:' || window.location.protocol === 'https:') {
+          return `https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(absoluteFileUrl)}`;
+        }
+      } catch (error) {
+        // fallback below
+      }
+
+      return encodeURI(filePath);
+    }
+
     function openHardcodedModal(modalElement) {
       if (!modalElement) {
         return;
+      }
+
+      const modalFrame = modalElement.querySelector('iframe[data-pptx-url]');
+      if (modalFrame) {
+        const rawPath = modalFrame.getAttribute('data-pptx-url') || '';
+        if (rawPath) {
+          modalFrame.src = buildHardcodedPptxEmbedUrl(rawPath);
+        }
       }
 
       modalElement.classList.add('active');
@@ -402,6 +423,11 @@ document.addEventListener('DOMContentLoaded', function () {
     function closeHardcodedModal(modalElement) {
       if (!modalElement) {
         return;
+      }
+
+      const modalFrame = modalElement.querySelector('iframe[data-pptx-url]');
+      if (modalFrame) {
+        modalFrame.src = 'about:blank';
       }
 
       modalElement.classList.remove('active');
