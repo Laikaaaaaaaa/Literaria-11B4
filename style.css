@@ -302,13 +302,8 @@ p {
 }
 
 .section-title::before {
-  content: '❦';
-  display: block;
-  font-size: 0.9rem;
-  color: rgba(74, 103, 65, 0.58);
-  margin-bottom: 0.75rem;
-  letter-spacing: 2px;
-  animation: ornamentBreathe 5s ease-in-out infinite;
+  content: '';
+  display: none;
 }
 
 .section-title::after {
