@@ -394,7 +394,7 @@ document.addEventListener('DOMContentLoaded', function () {
       try {
         const absoluteFileUrl = new URL(filePath, window.location.href).href;
         if (window.location.protocol === 'http:' || window.location.protocol === 'https:') {
-          return `https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(absoluteFileUrl)}`;
+          return `https://view.officeapps.live.com/op/view.aspx?src=${encodeURIComponent(absoluteFileUrl)}`;
         }
       } catch (error) {
         // fallback below
