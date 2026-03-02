@@ -385,117 +385,68 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // --- Van-ban page: PPTX modal ---
-  const pptxCards = Array.from(document.querySelectorAll('[data-pptx-work]'));
-  const pptxModal = document.getElementById('pptx-modal');
+  // --- Van-ban page: hardcoded PPTX modals ---
+  const hardcodedPptxTriggers = document.querySelectorAll('[data-modal-target]');
+  const hardcodedPptxModals = document.querySelectorAll('.read-modal-overlay[id^="pptx-modal-"]');
 
-  if (pptxCards.length > 0 && pptxModal) {
-    const pptxModalClose = document.getElementById('pptx-modal-close');
-    const pptxFrame = document.getElementById('pptx-modal-frame');
-    const pptxTitle = document.getElementById('pptx-modal-title');
-    const pptxAuthor = document.getElementById('pptx-modal-author');
-    const pptxNote = document.getElementById('pptx-modal-note');
-    const pptxOpenTab = document.getElementById('pptx-open-tab');
-    const pptxDownloadBtn = document.getElementById('pptx-download-btn');
-    const pptxHelper = document.getElementById('pptx-modal-helper');
-
-    function getPptxData(card) {
-      const filePath = card.getAttribute('data-pptx') || '';
-      const title = card.getAttribute('data-title') || 'Không có tiêu đề';
-      const author = card.getAttribute('data-author') || 'Khuyết danh';
-      const note = card.getAttribute('data-note') || 'Không có ghi chú.';
-
-      return {
-        filePath: filePath,
-        title: title,
-        author: author,
-        note: note
-      };
-    }
-
-    function buildPptxEmbedUrl(filePath) {
-      try {
-        const absoluteFileUrl = new URL(filePath, window.location.href).href;
-        if (window.location.protocol === 'http:' || window.location.protocol === 'https:') {
-          return `https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(absoluteFileUrl)}`;
-        }
-      } catch (error) {
-        // fallback below
-      }
-
-      return encodeURI(filePath);
-    }
-
-    function updatePptxModal(index) {
-      const safeIndex = Math.max(0, Math.min(index, pptxCards.length - 1));
-      const card = pptxCards[safeIndex];
-      const data = getPptxData(card);
-      const encodedPath = encodeURI(data.filePath);
-      const embedUrl = buildPptxEmbedUrl(data.filePath);
-
-      if (pptxTitle) pptxTitle.textContent = data.title;
-      if (pptxAuthor) pptxAuthor.textContent = data.author;
-      if (pptxNote) pptxNote.textContent = data.note;
-
-      if (pptxFrame) {
-        pptxFrame.src = embedUrl;
-      }
-
-      if (pptxOpenTab) {
-        pptxOpenTab.href = encodedPath;
-      }
-
-      if (pptxDownloadBtn) {
-        const fileName = data.filePath.split('/').pop() || 'tac-pham.pptx';
-        pptxDownloadBtn.href = encodedPath;
-        pptxDownloadBtn.setAttribute('download', fileName);
-      }
-
-      if (pptxHelper) {
-        const isLocal = window.location.protocol === 'file:';
-        pptxHelper.textContent = isLocal
-          ? 'Đang xem từ máy cục bộ. Nếu khung không hiển thị, hãy dùng nút tải xuống hoặc mở file ở tab mới.'
-          : 'Nếu khung không hiển thị, hãy dùng nút tải xuống hoặc mở file ở tab mới.';
-      }
-    }
-
-    function openPptxModal(index) {
-      updatePptxModal(index);
-      pptxModal.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closePptxModal() {
-      pptxModal.classList.remove('active');
-      document.body.style.overflow = '';
-      if (pptxFrame) {
-        pptxFrame.src = 'about:blank';
-      }
-    }
-
-    pptxCards.forEach(function (card, index) {
-      card.addEventListener('click', function () {
-        openPptxModal(index);
-      });
-    });
-
-    if (pptxModalClose) {
-      pptxModalClose.addEventListener('click', closePptxModal);
-    }
-
-    pptxModal.addEventListener('click', function (event) {
-      if (event.target === pptxModal) {
-        closePptxModal();
-      }
-    });
-
-    document.addEventListener('keydown', function (event) {
-      if (!pptxModal.classList.contains('active')) {
+  if (hardcodedPptxTriggers.length > 0 && hardcodedPptxModals.length > 0) {
+    function openHardcodedModal(modalElement) {
+      if (!modalElement) {
         return;
       }
 
-      if (event.key === 'Escape') {
-        closePptxModal();
+      modalElement.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeHardcodedModal(modalElement) {
+      if (!modalElement) {
+        return;
+      }
+
+      modalElement.classList.remove('active');
+      const hasActiveModal = document.querySelector('.read-modal-overlay.active');
+      if (!hasActiveModal) {
+        document.body.style.overflow = '';
+      }
+    }
+
+    hardcodedPptxTriggers.forEach(function (trigger) {
+      trigger.addEventListener('click', function (event) {
+        event.preventDefault();
+        const targetSelector = trigger.getAttribute('data-modal-target');
+        if (!targetSelector) {
+          return;
+        }
+
+        const targetModal = document.querySelector(targetSelector);
+        openHardcodedModal(targetModal);
+      });
+    });
+
+    hardcodedPptxModals.forEach(function (modalElement) {
+      const closeButton = modalElement.querySelector('[data-close-modal]');
+      if (closeButton) {
+        closeButton.addEventListener('click', function () {
+          closeHardcodedModal(modalElement);
+        });
+      }
+
+      modalElement.addEventListener('click', function (event) {
+        if (event.target === modalElement) {
+          closeHardcodedModal(modalElement);
+        }
+      });
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key !== 'Escape') {
+        return;
+      }
+
+      const activeModal = document.querySelector('.read-modal-overlay[id^="pptx-modal-"].active');
+      if (activeModal) {
+        closeHardcodedModal(activeModal);
       }
     });
   }

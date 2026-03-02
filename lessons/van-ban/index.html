@@ -42,56 +42,188 @@
           </div>
         </article>
 
-        <article class="read-work-card fade-in" data-pptx-work data-title="Chiều sương" data-author="Hà Vy" data-note="Slide trình bày tác phẩm Chiều sương." data-pptx="../../static/presentation/chieu_suong/Chieu_Suong-HaVy.pptx">
+        <article class="read-work-card fade-in">
           <p class="lesson-category-tag">Tác phẩm 01</p>
           <h3>Chiều sương</h3>
-          <p>Tệp: Chieu_Suong-HaVy.pptx</p>
-          <button type="button" class="lesson-link read-open-btn">Mở tác phẩm</button>
+          <p>Tác giả: Bùi Nguyễn Hà Vy</p>
+          <button type="button" class="lesson-link read-open-btn" data-modal-target="#pptx-modal-chieu-suong">Mở tác phẩm</button>
         </article>
 
-        <article class="read-work-card fade-in" data-pptx-work data-title="Kiến và người" data-author="Anh Thư" data-note="Slide trình bày tác phẩm Kiến và người." data-pptx="../../static/presentation/kien_va_nguoi/Kien_va_Nguoi-AnhThu.pptx">
+        <article class="read-work-card fade-in">
           <p class="lesson-category-tag">Tác phẩm 02</p>
           <h3>Kiến và người</h3>
-          <p>Tệp: Kien_va_Nguoi-AnhThu.pptx</p>
-          <button type="button" class="lesson-link read-open-btn">Mở tác phẩm</button>
+          <p>Tác giả: Nguyễn Chánh Anh Thư</p>
+          <button type="button" class="lesson-link read-open-btn" data-modal-target="#pptx-modal-kien-anh-thu">Mở tác phẩm</button>
         </article>
 
-        <article class="read-work-card fade-in" data-pptx-work data-title="Muối của rừng" data-author="Trà My - Cô Tuấn Anh" data-note="Slide trình bày tác phẩm Muối của rừng." data-pptx="../../static/presentation/muoi_cua_rung/Muoi_cua_rung-TraMy-CoTuanAnh.pdf.pptx">
+        <article class="read-work-card fade-in">
+          <p class="lesson-category-tag">Tác phẩm 02B</p>
+          <h3>Kiến và người</h3>
+          <p>Tác giả: Bùi Khánh Ly</p>
+          <button type="button" class="lesson-link read-open-btn" data-modal-target="#pptx-modal-kien-khanh-ly">Mở tác phẩm</button>
+        </article>
+
+        <article class="read-work-card fade-in">
+          <p class="lesson-category-tag">Tác phẩm 02C</p>
+          <h3>Kiến và người</h3>
+          <p>Tác giả: Nguyễn Minh Hy</p>
+          <button type="button" class="lesson-link read-open-btn" data-modal-target="#pptx-modal-kien-minh-hy">Mở tác phẩm</button>
+        </article>
+
+        <article class="read-work-card fade-in">
           <p class="lesson-category-tag">Tác phẩm 03</p>
           <h3>Muối của rừng</h3>
-          <p>Tệp: Muoi_cua_rung-TraMy-CoTuanAnh.pdf.pptx</p>
-          <button type="button" class="lesson-link read-open-btn">Mở tác phẩm</button>
+          <p>Tác giả: Cồ Tuấn Anh và Trần Nguyễn Trà My</p>
+          <button type="button" class="lesson-link read-open-btn" data-modal-target="#pptx-modal-muoi-cua-rung">Mở tác phẩm</button>
         </article>
 
-        <article class="read-work-card fade-in" data-pptx-work data-title="Tảo phát Bạch Đế thành" data-author="Trần Xuân Phú" data-note="Slide trình bày tác phẩm Tảo phát Bạch Đế thành." data-pptx="../../static/presentation/tao_phat_bach_de_thanh_ly_bach/Tao_Phat_Bach_De_Thanh_Ly_Bach-TranXuanPhu.pptx">
+        <article class="read-work-card fade-in">
           <p class="lesson-category-tag">Tác phẩm 04</p>
           <h3>Tảo phát Bạch Đế thành</h3>
-          <p>Tệp: Tao_Phat_Bach_De_Thanh_Ly_Bach-TranXuanPhu.pptx</p>
-          <button type="button" class="lesson-link read-open-btn">Mở tác phẩm</button>
+          <p>Tác giả: Trần Xuân Phú</p>
+          <button type="button" class="lesson-link read-open-btn" data-modal-target="#pptx-modal-tao-phat-bach-de-thanh">Mở tác phẩm</button>
         </article>
       </section>
     </div>
   </main>
 
-  <div class="read-modal-overlay" id="pptx-modal" aria-hidden="true">
+  <div class="read-modal-overlay" id="pptx-modal-chieu-suong" aria-hidden="true">
     <div class="read-modal-content pptx-modal-content">
-      <button class="read-modal-close" id="pptx-modal-close" type="button" aria-label="Đóng">&times;</button>
+      <button class="read-modal-close" data-close-modal type="button" aria-label="Đóng">&times;</button>
       <div class="read-modal-layout pptx-modal-layout">
         <div class="read-modal-main pptx-modal-main">
           <div class="pptx-toolbar">
-            <a class="lesson-link" id="pptx-download-btn" href="#" download>Tải xuống PPTX</a>
+            <a class="lesson-link" href="../../static/presentation/chieu_suong/Chieu_Suong-HaVy.pptx" download>Tải xuống PPTX</a>
           </div>
           <div class="pptx-frame-wrap">
-            <iframe id="pptx-modal-frame" title="Trình bày tác phẩm" loading="lazy"></iframe>
+            <iframe title="Chiều sương" loading="lazy" src="../../static/presentation/chieu_suong/Chieu_Suong-HaVy.pptx"></iframe>
           </div>
-          <p class="read-loading" id="pptx-modal-helper">Nếu trình duyệt không hiển thị trực tiếp, hãy dùng nút tải xuống hoặc mở file ở tab mới.</p>
+          <p class="read-loading">Nếu trình duyệt không hiển thị trực tiếp, hãy dùng nút tải xuống hoặc mở file ở tab mới.</p>
         </div>
         <aside class="read-modal-sidebar">
-          <h3 id="pptx-modal-title">Chiều sương</h3>
-          <p><strong>Tác giả/nhóm:</strong> <span id="pptx-modal-author">Hà Vy</span></p>
-          <p><strong>Ghi chú:</strong> <span id="pptx-modal-note">Slide trình bày tác phẩm.</span></p>
-          <p><strong>Nguồn:</strong> <span id="pptx-modal-source">static/presentation</span></p>
-          <p><a id="pptx-open-tab" href="#" target="_blank" rel="noopener">Mở ở tab mới</a></p>
+          <h3>Chiều sương</h3>
+          <p><strong>Tác giả/nhóm:</strong> Bùi Nguyễn Hà Vy</p>
+          <p><strong>Ghi chú:</strong> Slide trình bày tác phẩm Chiều sương.</p>
+          <p><a href="../../static/presentation/chieu_suong/Chieu_Suong-HaVy.pptx" target="_blank" rel="noopener">Mở ở tab mới</a></p>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <div class="read-modal-overlay" id="pptx-modal-kien-anh-thu" aria-hidden="true">
+    <div class="read-modal-content pptx-modal-content">
+      <button class="read-modal-close" data-close-modal type="button" aria-label="Đóng">&times;</button>
+      <div class="read-modal-layout pptx-modal-layout">
+        <div class="read-modal-main pptx-modal-main">
+          <div class="pptx-toolbar">
+            <a class="lesson-link" href="../../static/presentation/kien_va_nguoi/Kien_va_Nguoi-AnhThu.pptx" download>Tải xuống PPTX</a>
+          </div>
+          <div class="pptx-frame-wrap">
+            <iframe title="Kiến và người - Nguyễn Chánh Anh Thư" loading="lazy" src="../../static/presentation/kien_va_nguoi/Kien_va_Nguoi-AnhThu.pptx"></iframe>
+          </div>
+          <p class="read-loading">Nếu trình duyệt không hiển thị trực tiếp, hãy dùng nút tải xuống hoặc mở file ở tab mới.</p>
+        </div>
+        <aside class="read-modal-sidebar">
+          <h3>Kiến và người</h3>
+          <p><strong>Tác giả/nhóm:</strong> Nguyễn Chánh Anh Thư</p>
+          <p><strong>Ghi chú:</strong> Slide trình bày tác phẩm Kiến và người.</p>
+          <p><a href="../../static/presentation/kien_va_nguoi/Kien_va_Nguoi-AnhThu.pptx" target="_blank" rel="noopener">Mở ở tab mới</a></p>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <div class="read-modal-overlay" id="pptx-modal-kien-khanh-ly" aria-hidden="true">
+    <div class="read-modal-content pptx-modal-content">
+      <button class="read-modal-close" data-close-modal type="button" aria-label="Đóng">&times;</button>
+      <div class="read-modal-layout pptx-modal-layout">
+        <div class="read-modal-main pptx-modal-main">
+          <div class="pptx-toolbar">
+            <a class="lesson-link" href="../../static/presentation/kien_va_nguoi/Kien_va_Nguoi-KhanhLy.pptx" download>Tải xuống PPTX</a>
+          </div>
+          <div class="pptx-frame-wrap">
+            <iframe title="Kiến và người - Bùi Khánh Ly" loading="lazy" src="../../static/presentation/kien_va_nguoi/Kien_va_Nguoi-KhanhLy.pptx"></iframe>
+          </div>
+          <p class="read-loading">Nếu trình duyệt không hiển thị trực tiếp, hãy dùng nút tải xuống hoặc mở file ở tab mới.</p>
+        </div>
+        <aside class="read-modal-sidebar">
+          <h3>Kiến và người</h3>
+          <p><strong>Tác giả/nhóm:</strong> Bùi Khánh Ly</p>
+          <p><strong>Ghi chú:</strong> Slide trình bày tác phẩm Kiến và người.</p>
+          <p><a href="../../static/presentation/kien_va_nguoi/Kien_va_Nguoi-KhanhLy.pptx" target="_blank" rel="noopener">Mở ở tab mới</a></p>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <div class="read-modal-overlay" id="pptx-modal-kien-minh-hy" aria-hidden="true">
+    <div class="read-modal-content pptx-modal-content">
+      <button class="read-modal-close" data-close-modal type="button" aria-label="Đóng">&times;</button>
+      <div class="read-modal-layout pptx-modal-layout">
+        <div class="read-modal-main pptx-modal-main">
+          <div class="pptx-toolbar">
+            <a class="lesson-link" href="../../static/presentation/kien_va_nguoi/Kien_va_Nguoi-MinhHy.pptx" download>Tải xuống PPTX</a>
+          </div>
+          <div class="pptx-frame-wrap">
+            <iframe title="Kiến và người - Nguyễn Minh Hy" loading="lazy" src="../../static/presentation/kien_va_nguoi/Kien_va_Nguoi-MinhHy.pptx"></iframe>
+          </div>
+          <p class="read-loading">Nếu trình duyệt không hiển thị trực tiếp, hãy dùng nút tải xuống hoặc mở file ở tab mới.</p>
+        </div>
+        <aside class="read-modal-sidebar">
+          <h3>Kiến và người</h3>
+          <p><strong>Tác giả/nhóm:</strong> Nguyễn Minh Hy</p>
+          <p><strong>Ghi chú:</strong> Slide trình bày tác phẩm Kiến và người.</p>
+          <p><a href="../../static/presentation/kien_va_nguoi/Kien_va_Nguoi-MinhHy.pptx" target="_blank" rel="noopener">Mở ở tab mới</a></p>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <div class="read-modal-overlay" id="pptx-modal-muoi-cua-rung" aria-hidden="true">
+    <div class="read-modal-content pptx-modal-content">
+      <button class="read-modal-close" data-close-modal type="button" aria-label="Đóng">&times;</button>
+      <div class="read-modal-layout pptx-modal-layout">
+        <div class="read-modal-main pptx-modal-main">
+          <div class="pptx-toolbar">
+            <a class="lesson-link" href="../../static/presentation/muoi_cua_rung/Muoi_cua_rung-TraMy-CoTuanAnh.pdf.pptx" download>Tải xuống PPTX</a>
+          </div>
+          <div class="pptx-frame-wrap">
+            <iframe title="Muối của rừng" loading="lazy" src="../../static/presentation/muoi_cua_rung/Muoi_cua_rung-TraMy-CoTuanAnh.pdf.pptx"></iframe>
+          </div>
+          <p class="read-loading">Nếu trình duyệt không hiển thị trực tiếp, hãy dùng nút tải xuống hoặc mở file ở tab mới.</p>
+        </div>
+        <aside class="read-modal-sidebar">
+          <h3>Muối của rừng</h3>
+          <p><strong>Tác giả/nhóm:</strong> Cồ Tuấn Anh/Trần Nguyễn Trà My</p>
+          <p><strong>Ghi chú:</strong> Slide trình bày tác phẩm Muối của rừng.</p>
+          <p><strong>Tài liệu kèm theo:</strong></p>
+          <p><a href="https://www.canva.com/design/DAHCVpK52kI/hS0zAhOTGYGcKT8IWynIRg/edit?utm_content=DAHCVpK52kI&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" rel="noopener">Link Canva</a></p>
+          <p><a href="https://docs.google.com/document/d/1hvY9NgtkawKvbwQGPHt4HCXaf9u4OK79Pqxce5Xac24/edit?tab=t.0" target="_blank" rel="noopener">File Google Doc</a></p>
+          <p><a href="../../static/presentation/muoi_cua_rung/Muoi_cua_rung-TraMy-CoTuanAnh.pdf.pptx" target="_blank" rel="noopener">Mở ở tab mới</a></p>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <div class="read-modal-overlay" id="pptx-modal-tao-phat-bach-de-thanh" aria-hidden="true">
+    <div class="read-modal-content pptx-modal-content">
+      <button class="read-modal-close" data-close-modal type="button" aria-label="Đóng">&times;</button>
+      <div class="read-modal-layout pptx-modal-layout">
+        <div class="read-modal-main pptx-modal-main">
+          <div class="pptx-toolbar">
+            <a class="lesson-link" href="../../static/presentation/tao_phat_bach_de_thanh_ly_bach/Tao_Phat_Bach_De_Thanh_Ly_Bach-TranXuanPhu.pptx" download>Tải xuống PPTX</a>
+          </div>
+          <div class="pptx-frame-wrap">
+            <iframe title="Tảo phát Bạch Đế thành" loading="lazy" src="../../static/presentation/tao_phat_bach_de_thanh_ly_bach/Tao_Phat_Bach_De_Thanh_Ly_Bach-TranXuanPhu.pptx"></iframe>
+          </div>
+          <p class="read-loading">Nếu trình duyệt không hiển thị trực tiếp, hãy dùng nút tải xuống hoặc mở file ở tab mới.</p>
+        </div>
+        <aside class="read-modal-sidebar">
+          <h3>Tảo phát Bạch Đế thành</h3>
+          <p><strong>Tác giả/nhóm:</strong> Trần Xuân Phú</p>
+          <p><strong>Ghi chú:</strong> Slide trình bày tác phẩm Tảo phát Bạch Đế thành.</p>
+          <p><strong>Nguồn:</strong> static/presentation</p>
+          <p><a href="../../static/presentation/tao_phat_bach_de_thanh_ly_bach/Tao_Phat_Bach_De_Thanh_Ly_Bach-TranXuanPhu.pptx" target="_blank" rel="noopener">Mở ở tab mới</a></p>
         </aside>
       </div>
     </div>
