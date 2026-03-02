@@ -196,6 +196,12 @@ document.addEventListener('DOMContentLoaded', function () {
           video.controls = true;
           video.autoplay = true;
           mediaContainer.appendChild(video);
+        } else if (type === 'audio') {
+          const audio = document.createElement('audio');
+          audio.src = src;
+          audio.controls = true;
+          audio.autoplay = true;
+          mediaContainer.appendChild(audio);
         } else {
           const img = document.createElement('img');
           img.src = src;
