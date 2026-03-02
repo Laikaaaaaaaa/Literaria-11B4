@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Năng lực đọc — 11B4 Literaria</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css">
+  <style>
+    body { opacity: 0; transition: opacity 0.6s ease; }
+    body.page-loaded { opacity: 1; }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="../../index.html" class="navbar-logo">Literaria <span>11B4</span></a>
+      <div class="menu-toggle">
+        <span></span><span></span><span></span>
+      </div>
+      <div class="navbar-links">
+        <a href="../../index.html">Trang chủ</a>
+        <a href="../../about.html">Giới thiệu</a>
+        <a href="../../dreams.html">Tác phẩm</a>
+        <a href="../../activities.html">Hoạt động</a>
+        <a href="../" class="active">Bài học</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="page-content">
+    <div class="page-container">
+      <section class="section lesson-detail-shell">
+        <a href="../" class="lesson-back">&larr; Quay lại danh sách chuyên mục</a>
+
+        <article class="lesson-entry fade-in">
+          <div class="lesson-meta">Chuyên mục 01</div>
+          <h2>Năng lực đọc</h2>
+          <div class="lesson-body">
+            <p>Chọn tác phẩm để mở nhanh nội dung đọc hiểu ngay trong popup.</p>
+          </div>
+        </article>
+
+        <article class="read-work-card fade-in" data-read-work data-docx="../../static/read/Noi_va_Nghe-HuynhAnh.docx" data-title="Nói và Nghe" data-author="Trần Huỳnh Anh" data-note="Tài liệu đọc từ thư mục static/read.">
+          <p class="lesson-category-tag">Tác phẩm đọc</p>
+          <h3>Nói và Nghe</h3>
+          <p>Tác giả: Trần Huỳnh Anh</p>
+          <button type="button" class="lesson-link read-open-btn">Mở tác phẩm</button>
+        </article>
+      </section>
+    </div>
+  </main>
+
+  <div class="read-modal-overlay" id="read-modal" aria-hidden="true">
+    <div class="read-modal-content">
+      <button class="read-modal-close" id="read-modal-close" type="button" aria-label="Đóng">&times;</button>
+      <div class="read-modal-layout">
+        <div class="read-modal-main" id="read-modal-main-content">
+          <p class="read-loading">Đang tải nội dung tác phẩm...</p>
+        </div>
+        <aside class="read-modal-sidebar">
+          <h3 id="read-modal-title">Nói và Nghe</h3>
+          <p><strong>Tác giả:</strong> <span id="read-modal-author">Trần Huỳnh Anh</span></p>
+          <p><strong>Ghi chú:</strong> <span id="read-modal-note">Tài liệu đọc từ thư mục static/read.</span></p>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <p class="footer-quote">“Văn chương là tiếng lòng của người.”</p>
+    <p>11B4 Literaria &mdash; 2025 - 2026</p>
+  </footer>
+
+  <script src="https://unpkg.com/mammoth@1.6.0/mammoth.browser.min.js"></script>
+  <script src="../../script.js"></script>
+</body>
+</html>

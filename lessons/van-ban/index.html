@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Văn bản — 11B4 Literaria</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css">
+  <style>
+    body { opacity: 0; transition: opacity 0.6s ease; }
+    body.page-loaded { opacity: 1; }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="../../index.html" class="navbar-logo">Literaria <span>11B4</span></a>
+      <div class="menu-toggle">
+        <span></span><span></span><span></span>
+      </div>
+      <div class="navbar-links">
+        <a href="../../index.html">Trang chủ</a>
+        <a href="../../about.html">Giới thiệu</a>
+        <a href="../../dreams.html">Tác phẩm</a>
+        <a href="../../activities.html">Hoạt động</a>
+        <a href="../" class="active">Bài học</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="page-content">
+    <div class="page-container">
+      <section class="section lesson-detail-shell">
+        <a href="../" class="lesson-back">&larr; Quay lại danh sách chuyên mục</a>
+
+        <article class="lesson-entry fade-in">
+          <div class="lesson-meta">Chuyên mục 04</div>
+          <h2>Văn bản</h2>
+          <div class="lesson-body">
+            <p>Chọn tác phẩm để mở trình bày dạng PPTX trong popup.</p>
+          </div>
+        </article>
+
+        <article class="read-work-card fade-in" data-pptx-work data-title="Chiều sương" data-author="Hà Vy" data-note="Slide trình bày tác phẩm Chiều sương." data-pptx="../../static/presentation/chieu_suong/Chieu_Suong-HaVy.pptx">
+          <p class="lesson-category-tag">Tác phẩm 01</p>
+          <h3>Chiều sương</h3>
+          <p>Tệp: Chieu_Suong-HaVy.pptx</p>
+          <button type="button" class="lesson-link read-open-btn">Mở tác phẩm</button>
+        </article>
+
+        <article class="read-work-card fade-in" data-pptx-work data-title="Kiến và người" data-author="Anh Thư" data-note="Slide trình bày tác phẩm Kiến và người." data-pptx="../../static/presentation/kien_va_nguoi/Kien_va_Nguoi-AnhThu.pptx">
+          <p class="lesson-category-tag">Tác phẩm 02</p>
+          <h3>Kiến và người</h3>
+          <p>Tệp: Kien_va_Nguoi-AnhThu.pptx</p>
+          <button type="button" class="lesson-link read-open-btn">Mở tác phẩm</button>
+        </article>
+
+        <article class="read-work-card fade-in" data-pptx-work data-title="Muối của rừng" data-author="Trà My - Cô Tuấn Anh" data-note="Slide trình bày tác phẩm Muối của rừng." data-pptx="../../static/presentation/muoi_cua_rung/Muoi_cua_rung-TraMy-CoTuanAnh.pdf.pptx">
+          <p class="lesson-category-tag">Tác phẩm 03</p>
+          <h3>Muối của rừng</h3>
+          <p>Tệp: Muoi_cua_rung-TraMy-CoTuanAnh.pdf.pptx</p>
+          <button type="button" class="lesson-link read-open-btn">Mở tác phẩm</button>
+        </article>
+
+        <article class="read-work-card fade-in" data-pptx-work data-title="Tảo phát Bạch Đế thành" data-author="Trần Xuân Phú" data-note="Slide trình bày tác phẩm Tảo phát Bạch Đế thành." data-pptx="../../static/presentation/tao_phat_bach_de_thanh_ly_bach/Tao_Phat_Bach_De_Thanh_Ly_Bach-TranXuanPhu.pptx">
+          <p class="lesson-category-tag">Tác phẩm 04</p>
+          <h3>Tảo phát Bạch Đế thành</h3>
+          <p>Tệp: Tao_Phat_Bach_De_Thanh_Ly_Bach-TranXuanPhu.pptx</p>
+          <button type="button" class="lesson-link read-open-btn">Mở tác phẩm</button>
+        </article>
+      </section>
+    </div>
+  </main>
+
+  <div class="read-modal-overlay" id="pptx-modal" aria-hidden="true">
+    <div class="read-modal-content pptx-modal-content">
+      <button class="read-modal-close" id="pptx-modal-close" type="button" aria-label="Đóng">&times;</button>
+      <div class="read-modal-layout pptx-modal-layout">
+        <div class="read-modal-main pptx-modal-main">
+          <div class="pptx-toolbar">
+            <a class="lesson-link" id="pptx-download-btn" href="#" download>Tải xuống PPTX</a>
+          </div>
+          <div class="pptx-frame-wrap">
+            <iframe id="pptx-modal-frame" title="Trình bày tác phẩm" loading="lazy"></iframe>
+          </div>
+          <p class="read-loading" id="pptx-modal-helper">Nếu trình duyệt không hiển thị trực tiếp, hãy dùng nút tải xuống hoặc mở file ở tab mới.</p>
+        </div>
+        <aside class="read-modal-sidebar">
+          <h3 id="pptx-modal-title">Chiều sương</h3>
+          <p><strong>Tác giả/nhóm:</strong> <span id="pptx-modal-author">Hà Vy</span></p>
+          <p><strong>Ghi chú:</strong> <span id="pptx-modal-note">Slide trình bày tác phẩm.</span></p>
+          <p><strong>Nguồn:</strong> <span id="pptx-modal-source">static/presentation</span></p>
+          <p><a id="pptx-open-tab" href="#" target="_blank" rel="noopener">Mở ở tab mới</a></p>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <p class="footer-quote">“Văn chương là tiếng lòng của người.”</p>
+    <p>11B4 Literaria &mdash; 2025 - 2026</p>
+  </footer>
+
+  <script src="../../script.js"></script>
+</body>
+</html>
