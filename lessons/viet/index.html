@@ -11,39 +11,176 @@
     body { opacity: 0; transition: opacity 0.6s ease; }
     body.page-loaded { opacity: 1; }
 
-    .viet-showcase + .viet-showcase {
-      margin-top: 1.2rem;
+    .viet-title-wrap {
+      margin-bottom: 1rem;
     }
 
-    .viet-showcase h3 {
-      margin-bottom: 0.25rem;
-    }
-
-    .viet-gallery {
+    .viet-stack-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 0.75rem;
-      margin-top: 0.8rem;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 0.9rem;
+      margin-top: 0.9rem;
     }
 
-    .viet-photo-link {
-      display: block;
-      border-radius: 10px;
-      overflow: hidden;
-      border: 1px solid rgba(74, 103, 65, 0.16);
-      background: #f1f3ee;
-    }
-
-    .viet-photo-link img {
+    .viet-stack-card {
+      display: grid;
+      grid-template-columns: 108px minmax(0, 1fr);
+      gap: 0.8rem;
+      align-items: center;
       width: 100%;
+      text-align: left;
+      background: #fff;
+      border: 1px solid rgba(74, 103, 65, 0.16);
+      border-radius: 12px;
+      padding: 0.8rem;
+      cursor: pointer;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .viet-stack-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 9px 22px rgba(74, 103, 65, 0.12);
+    }
+
+    .viet-stack-preview {
+      position: relative;
+      height: 124px;
+    }
+
+    .viet-stack-preview img {
+      position: absolute;
+      width: 88px;
+      height: 124px;
       aspect-ratio: 3 / 4;
       object-fit: cover;
-      display: block;
-      transition: transform 0.3s ease;
+      border-radius: 10px;
+      border: 2px solid #fff;
+      box-shadow: 0 5px 16px rgba(0, 0, 0, 0.14);
     }
 
-    .viet-photo-link:hover img {
-      transform: scale(1.03);
+    .viet-stack-preview img:nth-child(1) { left: 0; top: 0; z-index: 3; }
+    .viet-stack-preview img:nth-child(2) { left: 16px; top: 6px; z-index: 2; }
+    .viet-stack-preview img:nth-child(3) { left: 32px; top: 12px; z-index: 1; }
+
+    .viet-stack-more {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      z-index: 4;
+      background: rgba(32, 49, 31, 0.92);
+      color: #fff;
+      border-radius: 999px;
+      padding: 0.14rem 0.52rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+    }
+
+    .viet-stack-meta h3 {
+      margin-bottom: 0.18rem;
+      font-size: 1.04rem;
+      line-height: 1.35;
+    }
+
+    .viet-stack-meta p {
+      margin: 0;
+      color: #6b6b5b;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .viet-viewer {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(9, 12, 10, 0.9);
+      z-index: 2600;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .viet-viewer.active {
+      display: flex;
+    }
+
+    .viet-viewer-stage {
+      position: relative;
+      width: min(1100px, 96vw);
+      max-height: 90vh;
+      display: grid;
+      justify-items: center;
+      gap: 0.45rem;
+    }
+
+    .viet-viewer-image {
+      max-width: 100%;
+      max-height: 80vh;
+      border-radius: 12px;
+      object-fit: contain;
+      background: #0f1510;
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45);
+    }
+
+    .viet-viewer-counter {
+      color: #f1f4ee;
+      font-weight: 600;
+      font-size: 0.92rem;
+      letter-spacing: 0.3px;
+    }
+
+    .viet-viewer-close,
+    .viet-viewer-nav {
+      border: none;
+      cursor: pointer;
+      color: #f6f8f4;
+      background: rgba(26, 42, 24, 0.72);
+    }
+
+    .viet-viewer-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      font-size: 1.2rem;
+      z-index: 2;
+    }
+
+    .viet-viewer-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      font-size: 1.35rem;
+      z-index: 2;
+    }
+
+    .viet-viewer-prev { left: 12px; }
+    .viet-viewer-next { right: 12px; }
+
+    @media (max-width: 768px) {
+      .viet-viewer-nav {
+        display: none;
+      }
+
+      .viet-stack-card {
+        grid-template-columns: 96px minmax(0, 1fr);
+      }
+
+      .viet-stack-preview {
+        height: 112px;
+      }
+
+      .viet-stack-preview img {
+        width: 80px;
+        height: 112px;
+      }
+    }
     }
   </style>
 </head>
@@ -71,56 +208,203 @@
           <div class="lesson-meta">Chuyên mục 05</div>
           <h2>Viết</h2>
           <div class="lesson-body">
-            <p>Trưng bày bài viết kèm ảnh chụp theo từng bạn trong thư mục <strong>static/images/viet</strong>.</p>
-            <p><strong>Gợi ý:</strong> bấm vào từng ảnh để mở ảnh gốc ở tab mới.</p>
+            <p>Chọn từng tác giả để mở bộ ảnh bài viết. Trên máy tính dùng mũi tên để chuyển ảnh; trên điện thoại vuốt trái/phải.</p>
           </div>
         </article>
 
-        <article class="lesson-entry fade-in viet-showcase">
-          <div class="lesson-meta">Bộ ảnh 01</div>
-          <h3>Muối của rừng — Nguyễn Khánh Ngọc</h3>
-          <div class="viet-gallery">
-            <a class="viet-photo-link" href="../../static/images/viet/Muoi_cua_rung-Kh%C3%A1nh%20Ng%E1%BB%8Dc/1.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../../static/images/viet/Muoi_cua_rung-Kh%C3%A1nh%20Ng%E1%BB%8Dc/1.jpg" alt="Muối của rừng - Nguyễn Khánh Ngọc - ảnh 1"></a>
-            <a class="viet-photo-link" href="../../static/images/viet/Muoi_cua_rung-Kh%C3%A1nh%20Ng%E1%BB%8Dc/2.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../../static/images/viet/Muoi_cua_rung-Kh%C3%A1nh%20Ng%E1%BB%8Dc/2.jpg" alt="Muối của rừng - Nguyễn Khánh Ngọc - ảnh 2"></a>
-            <a class="viet-photo-link" href="../../static/images/viet/Muoi_cua_rung-Kh%C3%A1nh%20Ng%E1%BB%8Dc/3.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../../static/images/viet/Muoi_cua_rung-Kh%C3%A1nh%20Ng%E1%BB%8Dc/3.jpg" alt="Muối của rừng - Nguyễn Khánh Ngọc - ảnh 3"></a>
-            <a class="viet-photo-link" href="../../static/images/viet/Muoi_cua_rung-Kh%C3%A1nh%20Ng%E1%BB%8Dc/4.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../../static/images/viet/Muoi_cua_rung-Kh%C3%A1nh%20Ng%E1%BB%8Dc/4.jpg" alt="Muối của rừng - Nguyễn Khánh Ngọc - ảnh 4"></a>
-          </div>
-        </article>
+        <div class="viet-title-wrap fade-in">
+          <div class="lesson-meta">Bộ ảnh theo tác giả</div>
+        </div>
 
-        <article class="lesson-entry fade-in viet-showcase">
-          <div class="lesson-meta">Bộ ảnh 02</div>
-          <h3>Muối của rừng — Nguyễn Hoàng Phú</h3>
-          <div class="viet-gallery">
-            <a class="viet-photo-link" href="../../static/images/viet/Mu%E1%BB%91i%20c%E1%BB%A7a%20r%E1%BB%ABng-Ho%C3%A0ng%20Ph%C3%BA/z7570942112406_3abe294d341a1c8c45a7aa9318ff2a8c.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../../static/images/viet/Mu%E1%BB%91i%20c%E1%BB%A7a%20r%E1%BB%ABng-Ho%C3%A0ng%20Ph%C3%BA/z7570942112406_3abe294d341a1c8c45a7aa9318ff2a8c.jpg" alt="Muối của rừng - Nguyễn Hoàng Phú - ảnh 1"></a>
-            <a class="viet-photo-link" href="../../static/images/viet/Mu%E1%BB%91i%20c%E1%BB%A7a%20r%E1%BB%ABng-Ho%C3%A0ng%20Ph%C3%BA/z7570942768443_61c6a4eff2ce19132bcc8328d52662ff.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../../static/images/viet/Mu%E1%BB%91i%20c%E1%BB%A7a%20r%E1%BB%ABng-Ho%C3%A0ng%20Ph%C3%BA/z7570942768443_61c6a4eff2ce19132bcc8328d52662ff.jpg" alt="Muối của rừng - Nguyễn Hoàng Phú - ảnh 2"></a>
-            <a class="viet-photo-link" href="../../static/images/viet/Mu%E1%BB%91i%20c%E1%BB%A7a%20r%E1%BB%ABng-Ho%C3%A0ng%20Ph%C3%BA/z7570943184197_e45ac3eb9e59fa8d1821d48e86f6943b.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../../static/images/viet/Mu%E1%BB%91i%20c%E1%BB%A7a%20r%E1%BB%ABng-Ho%C3%A0ng%20Ph%C3%BA/z7570943184197_e45ac3eb9e59fa8d1821d48e86f6943b.jpg" alt="Muối của rừng - Nguyễn Hoàng Phú - ảnh 3"></a>
-          </div>
-        </article>
+        <div class="viet-stack-grid fade-in">
+          <button
+            class="viet-stack-card"
+            type="button"
+            data-viet-viewer
+            data-title="Muối của rừng — Nguyễn Khánh Ngọc"
+            data-images="../../static/images/viet/Muoi_cua_rung-Kh%C3%A1nh%20Ng%E1%BB%8Dc/1.jpg|../../static/images/viet/Muoi_cua_rung-Kh%C3%A1nh%20Ng%E1%BB%8Dc/2.jpg|../../static/images/viet/Muoi_cua_rung-Kh%C3%A1nh%20Ng%E1%BB%8Dc/3.jpg|../../static/images/viet/Muoi_cua_rung-Kh%C3%A1nh%20Ng%E1%BB%8Dc/4.jpg">
+            <div class="viet-stack-preview">
+              <img loading="lazy" src="../../static/images/viet/Muoi_cua_rung-Kh%C3%A1nh%20Ng%E1%BB%8Dc/1.jpg" alt="Nguyễn Khánh Ngọc ảnh 1">
+              <img loading="lazy" src="../../static/images/viet/Muoi_cua_rung-Kh%C3%A1nh%20Ng%E1%BB%8Dc/2.jpg" alt="Nguyễn Khánh Ngọc ảnh 2">
+              <img loading="lazy" src="../../static/images/viet/Muoi_cua_rung-Kh%C3%A1nh%20Ng%E1%BB%8Dc/3.jpg" alt="Nguyễn Khánh Ngọc ảnh 3">
+              <span class="viet-stack-more">+1 ảnh</span>
+            </div>
+            <div class="viet-stack-meta">
+              <h3>Nguyễn Khánh Ngọc</h3>
+              <p>Muối của rừng • 4 ảnh</p>
+            </div>
+          </button>
 
-        <article class="lesson-entry fade-in viet-showcase">
-          <div class="lesson-meta">Bộ ảnh 03</div>
-          <h3>Muối của rừng — Từ Ngọc Trâm Anh</h3>
-          <div class="viet-gallery">
-            <a class="viet-photo-link" href="../../static/images/viet/Mu%E1%BB%91i%20c%E1%BB%A7a%20r%E1%BB%ABng-Tr%C3%A2m%20Anh/1.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../../static/images/viet/Mu%E1%BB%91i%20c%E1%BB%A7a%20r%E1%BB%ABng-Tr%C3%A2m%20Anh/1.jpg" alt="Muối của rừng - Từ Ngọc Trâm Anh - ảnh 1"></a>
-            <a class="viet-photo-link" href="../../static/images/viet/Mu%E1%BB%91i%20c%E1%BB%A7a%20r%E1%BB%ABng-Tr%C3%A2m%20Anh/2.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../../static/images/viet/Mu%E1%BB%91i%20c%E1%BB%A7a%20r%E1%BB%ABng-Tr%C3%A2m%20Anh/2.jpg" alt="Muối của rừng - Từ Ngọc Trâm Anh - ảnh 2"></a>
-            <a class="viet-photo-link" href="../../static/images/viet/Mu%E1%BB%91i%20c%E1%BB%A7a%20r%E1%BB%ABng-Tr%C3%A2m%20Anh/3.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../../static/images/viet/Mu%E1%BB%91i%20c%E1%BB%A7a%20r%E1%BB%ABng-Tr%C3%A2m%20Anh/3.jpg" alt="Muối của rừng - Từ Ngọc Trâm Anh - ảnh 3"></a>
-            <a class="viet-photo-link" href="../../static/images/viet/Mu%E1%BB%91i%20c%E1%BB%A7a%20r%E1%BB%ABng-Tr%C3%A2m%20Anh/4.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../../static/images/viet/Mu%E1%BB%91i%20c%E1%BB%A7a%20r%E1%BB%ABng-Tr%C3%A2m%20Anh/4.jpg" alt="Muối của rừng - Từ Ngọc Trâm Anh - ảnh 4"></a>
-            <a class="viet-photo-link" href="../../static/images/viet/Mu%E1%BB%91i%20c%E1%BB%A7a%20r%E1%BB%ABng-Tr%C3%A2m%20Anh/5.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../../static/images/viet/Mu%E1%BB%91i%20c%E1%BB%A7a%20r%E1%BB%ABng-Tr%C3%A2m%20Anh/5.jpg" alt="Muối của rừng - Từ Ngọc Trâm Anh - ảnh 5"></a>
-            <a class="viet-photo-link" href="../../static/images/viet/Mu%E1%BB%91i%20c%E1%BB%A7a%20r%E1%BB%ABng-Tr%C3%A2m%20Anh/6.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../../static/images/viet/Mu%E1%BB%91i%20c%E1%BB%A7a%20r%E1%BB%ABng-Tr%C3%A2m%20Anh/6.jpg" alt="Muối của rừng - Từ Ngọc Trâm Anh - ảnh 6"></a>
-            <a class="viet-photo-link" href="../../static/images/viet/Mu%E1%BB%91i%20c%E1%BB%A7a%20r%E1%BB%ABng-Tr%C3%A2m%20Anh/7.jpg" target="_blank" rel="noopener"><img loading="lazy" src="../../static/images/viet/Mu%E1%BB%91i%20c%E1%BB%A7a%20r%E1%BB%ABng-Tr%C3%A2m%20Anh/7.jpg" alt="Muối của rừng - Từ Ngọc Trâm Anh - ảnh 7"></a>
-          </div>
-          <div class="lesson-entry-actions" style="margin-top: 1rem;">
-            <a class="lesson-link" href="../tap-lam-van/">Quay lại mục Tập làm văn</a>
-          </div>
-        </article>
+          <button
+            class="viet-stack-card"
+            type="button"
+            data-viet-viewer
+            data-title="Muối của rừng — Nguyễn Hoàng Phú"
+            data-images="../../static/images/viet/Mu%E1%BB%91i%20c%E1%BB%A7a%20r%E1%BB%ABng-Ho%C3%A0ng%20Ph%C3%BA/z7570942112406_3abe294d341a1c8c45a7aa9318ff2a8c.jpg|../../static/images/viet/Mu%E1%BB%91i%20c%E1%BB%A7a%20r%E1%BB%ABng-Ho%C3%A0ng%20Ph%C3%BA/z7570942768443_61c6a4eff2ce19132bcc8328d52662ff.jpg|../../static/images/viet/Mu%E1%BB%91i%20c%E1%BB%A7a%20r%E1%BB%ABng-Ho%C3%A0ng%20Ph%C3%BA/z7570943184197_e45ac3eb9e59fa8d1821d48e86f6943b.jpg">
+            <div class="viet-stack-preview">
+              <img loading="lazy" src="../../static/images/viet/Mu%E1%BB%91i%20c%E1%BB%A7a%20r%E1%BB%ABng-Ho%C3%A0ng%20Ph%C3%BA/z7570942112406_3abe294d341a1c8c45a7aa9318ff2a8c.jpg" alt="Nguyễn Hoàng Phú ảnh 1">
+              <img loading="lazy" src="../../static/images/viet/Mu%E1%BB%91i%20c%E1%BB%A7a%20r%E1%BB%ABng-Ho%C3%A0ng%20Ph%C3%BA/z7570942768443_61c6a4eff2ce19132bcc8328d52662ff.jpg" alt="Nguyễn Hoàng Phú ảnh 2">
+              <img loading="lazy" src="../../static/images/viet/Mu%E1%BB%91i%20c%E1%BB%A7a%20r%E1%BB%ABng-Ho%C3%A0ng%20Ph%C3%BA/z7570943184197_e45ac3eb9e59fa8d1821d48e86f6943b.jpg" alt="Nguyễn Hoàng Phú ảnh 3">
+              <span class="viet-stack-more">+0 ảnh</span>
+            </div>
+            <div class="viet-stack-meta">
+              <h3>Nguyễn Hoàng Phú</h3>
+              <p>Muối của rừng • 3 ảnh</p>
+            </div>
+          </button>
+
+          <button
+            class="viet-stack-card"
+            type="button"
+            data-viet-viewer
+            data-title="Muối của rừng — Từ Ngọc Trâm Anh"
+            data-images="../../static/images/viet/Mu%E1%BB%91i%20c%E1%BB%A7a%20r%E1%BB%ABng-Tr%C3%A2m%20Anh/1.jpg|../../static/images/viet/Mu%E1%BB%91i%20c%E1%BB%A7a%20r%E1%BB%ABng-Tr%C3%A2m%20Anh/2.jpg|../../static/images/viet/Mu%E1%BB%91i%20c%E1%BB%A7a%20r%E1%BB%ABng-Tr%C3%A2m%20Anh/3.jpg|../../static/images/viet/Mu%E1%BB%91i%20c%E1%BB%A7a%20r%E1%BB%ABng-Tr%C3%A2m%20Anh/4.jpg|../../static/images/viet/Mu%E1%BB%91i%20c%E1%BB%A7a%20r%E1%BB%ABng-Tr%C3%A2m%20Anh/5.jpg|../../static/images/viet/Mu%E1%BB%91i%20c%E1%BB%A7a%20r%E1%BB%ABng-Tr%C3%A2m%20Anh/6.jpg|../../static/images/viet/Mu%E1%BB%91i%20c%E1%BB%A7a%20r%E1%BB%ABng-Tr%C3%A2m%20Anh/7.jpg">
+            <div class="viet-stack-preview">
+              <img loading="lazy" src="../../static/images/viet/Mu%E1%BB%91i%20c%E1%BB%A7a%20r%E1%BB%ABng-Tr%C3%A2m%20Anh/1.jpg" alt="Từ Ngọc Trâm Anh ảnh 1">
+              <img loading="lazy" src="../../static/images/viet/Mu%E1%BB%91i%20c%E1%BB%A7a%20r%E1%BB%ABng-Tr%C3%A2m%20Anh/2.jpg" alt="Từ Ngọc Trâm Anh ảnh 2">
+              <img loading="lazy" src="../../static/images/viet/Mu%E1%BB%91i%20c%E1%BB%A7a%20r%E1%BB%ABng-Tr%C3%A2m%20Anh/3.jpg" alt="Từ Ngọc Trâm Anh ảnh 3">
+              <span class="viet-stack-more">+4 ảnh</span>
+            </div>
+            <div class="viet-stack-meta">
+              <h3>Từ Ngọc Trâm Anh</h3>
+              <p>Muối của rừng • 7 ảnh</p>
+            </div>
+          </button>
+        </div>
       </section>
     </div>
   </main>
+
+  <div class="viet-viewer" id="viet-viewer" aria-hidden="true">
+    <div class="viet-viewer-stage" id="viet-viewer-stage">
+      <button class="viet-viewer-close" id="viet-viewer-close" type="button" aria-label="Đóng">&times;</button>
+      <button class="viet-viewer-nav viet-viewer-prev" id="viet-viewer-prev" type="button" aria-label="Ảnh trước">&#8249;</button>
+      <img class="viet-viewer-image" id="viet-viewer-image" src="" alt="Ảnh bài viết">
+      <button class="viet-viewer-nav viet-viewer-next" id="viet-viewer-next" type="button" aria-label="Ảnh sau">&#8250;</button>
+      <div class="viet-viewer-counter" id="viet-viewer-counter">1/1 ảnh</div>
+    </div>
+  </div>
 
   <footer class="site-footer">
     <p class="footer-quote">“Văn chương là tiếng lòng của người.”</p>
     <p>11B4 Literaria &mdash; 2025 - 2026</p>
   </footer>
   <script src="../../script.js?v=20260303-2"></script>
+  <script>
+    (function () {
+      const triggerCards = document.querySelectorAll('[data-viet-viewer]');
+      const viewer = document.getElementById('viet-viewer');
+      const viewerImage = document.getElementById('viet-viewer-image');
+      const viewerCounter = document.getElementById('viet-viewer-counter');
+      const viewerClose = document.getElementById('viet-viewer-close');
+      const viewerPrev = document.getElementById('viet-viewer-prev');
+      const viewerNext = document.getElementById('viet-viewer-next');
+      const viewerStage = document.getElementById('viet-viewer-stage');
+
+      if (!triggerCards.length || !viewer || !viewerImage || !viewerCounter) {
+        return;
+      }
+
+      let currentImages = [];
+      let currentIndex = 0;
+      let touchStartX = 0;
+
+      function updateViewer() {
+        if (!currentImages.length) {
+          return;
+        }
+
+        viewerImage.src = currentImages[currentIndex];
+        viewerCounter.textContent = `${currentIndex + 1}/${currentImages.length} ảnh`;
+      }
+
+      function openViewer(images, startIndex) {
+        currentImages = images;
+        currentIndex = Math.max(0, Math.min(startIndex, images.length - 1));
+        updateViewer();
+        viewer.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeViewer() {
+        viewer.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      function moveNext() {
+        if (!currentImages.length) return;
+        currentIndex = (currentIndex + 1) % currentImages.length;
+        updateViewer();
+      }
+
+      function movePrev() {
+        if (!currentImages.length) return;
+        currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+        updateViewer();
+      }
+
+      triggerCards.forEach(function (card) {
+        card.addEventListener('click', function () {
+          const raw = card.getAttribute('data-images') || '';
+          const images = raw.split('|').map(function (item) { return item.trim(); }).filter(Boolean);
+          if (!images.length) return;
+          openViewer(images, 0);
+        });
+      });
+
+      if (viewerClose) {
+        viewerClose.addEventListener('click', closeViewer);
+      }
+
+      if (viewerPrev) {
+        viewerPrev.addEventListener('click', movePrev);
+      }
+
+      if (viewerNext) {
+        viewerNext.addEventListener('click', moveNext);
+      }
+
+      viewer.addEventListener('click', function (event) {
+        if (event.target === viewer) {
+          closeViewer();
+        }
+      });
+
+      document.addEventListener('keydown', function (event) {
+        if (!viewer.classList.contains('active')) {
+          return;
+        }
+
+        if (event.key === 'Escape') {
+          closeViewer();
+        } else if (event.key === 'ArrowRight') {
+          moveNext();
+        } else if (event.key === 'ArrowLeft') {
+          movePrev();
+        }
+      });
+
+      if (viewerStage) {
+        viewerStage.addEventListener('touchstart', function (event) {
+          touchStartX = event.changedTouches[0].clientX;
+        }, { passive: true });
+
+        viewerStage.addEventListener('touchend', function (event) {
+          const touchEndX = event.changedTouches[0].clientX;
+          const diffX = touchEndX - touchStartX;
+
+          if (Math.abs(diffX) < 35) {
+            return;
+          }
+
+          if (diffX < 0) {
+            moveNext();
+          } else {
+            movePrev();
+          }
+        }, { passive: true });
+      }
+    })();
+  </script>
 </body>
 </html>
