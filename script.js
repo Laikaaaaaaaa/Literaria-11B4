@@ -193,6 +193,7 @@ document.addEventListener('DOMContentLoaded', function () {
           }
 
           if (thumbSrc && target.tagName.toLowerCase() === 'video') {
+            target.preload = 'metadata';
             target.setAttribute('src', thumbSrc);
             target.load();
             target.removeAttribute('data-thumb-src');
