@@ -10,6 +10,35 @@
   <style>
     body { opacity: 0; transition: opacity 0.6s ease; }
     body.page-loaded { opacity: 1; }
+
+    .lessons-heading-list {
+      display: grid;
+      gap: 1.2rem;
+      margin-top: 1.1rem;
+    }
+
+    .lessons-heading-item {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      padding-bottom: 0.9rem;
+      border-bottom: 1px solid rgba(74, 103, 65, 0.16);
+    }
+
+    .lessons-heading-item:last-child {
+      border-bottom: none;
+    }
+
+    .lessons-heading-item h3 {
+      margin-bottom: 0.25rem;
+      color: #2f3c2b;
+    }
+
+    .lessons-heading-item p {
+      margin-bottom: 0.4rem;
+      color: #5f6757;
+      line-height: 1.7;
+    }
   </style>
 </head>
 <body>
@@ -42,40 +71,36 @@
           Mỗi mục đều có trang riêng để bạn theo dõi dễ hơn.
         </p>
 
-        <div class="lesson-category-grid">
-          <a class="lesson-category-card fade-in" href="nang-luc-doc/">
+        <div class="lessons-heading-list">
+          <a class="lessons-heading-item fade-in" href="nang-luc-doc/">
             <p class="lesson-category-tag">Chuyên mục 01</p>
             <h3>Năng lực đọc</h3>
-            <p>Rèn cách đọc hiểu văn bản theo từng bước: nhận biết, phân tích, liên hệ và phản hồi.</p>
-            <span class="lesson-link">Mở chuyên mục</span>
+            <p>Chọn tác phẩm để đọc hiểu trực tiếp; bấm mở để xem nhanh trong popup.</p>
           </a>
 
-          <a class="lesson-category-card fade-in" href="tap-lam-van/">
+          <a class="lessons-heading-item fade-in" href="tap-lam-van/">
             <p class="lesson-category-tag">Chuyên mục 02</p>
             <h3>Tập làm văn</h3>
-            <p>Tổng hợp bố cục, dàn ý và kỹ thuật lập luận cho các dạng bài nghị luận phổ biến.</p>
-            <span class="lesson-link">Mở chuyên mục</span>
+            <p>Hệ thống cách lập dàn ý, triển khai luận điểm và liên kết đoạn văn để bài viết mạch lạc, đủ ý và đúng trọng tâm đề.</p>
+            <p><strong>Trọng tâm ôn tập:</strong> mở bài ngắn gọn, thân bài có dẫn chứng, kết bài khái quát; tránh lạc đề và lặp ý.</p>
           </a>
 
-          <a class="lesson-category-card fade-in" href="tieng-viet/">
+          <a class="lessons-heading-item fade-in" href="tieng-viet/">
             <p class="lesson-category-tag">Chuyên mục 03</p>
             <h3>Tiếng Việt</h3>
             <p>Ôn tập kiến thức trọng tâm về từ vựng, ngữ pháp, phong cách ngôn ngữ và biện pháp tu từ.</p>
-            <span class="lesson-link">Mở chuyên mục</span>
           </a>
 
-          <a class="lesson-category-card fade-in" href="van-ban/">
+          <a class="lessons-heading-item fade-in" href="van-ban/">
             <p class="lesson-category-tag">Chuyên mục 04</p>
             <h3>Văn bản</h3>
             <p>Hệ thống tác phẩm, tác giả, giá trị nội dung và nghệ thuật để ghi nhớ nhanh trước kiểm tra.</p>
-            <span class="lesson-link">Mở chuyên mục</span>
           </a>
 
-          <a class="lesson-category-card fade-in" href="viet/">
+          <a class="lessons-heading-item fade-in" href="viet/">
             <p class="lesson-category-tag">Chuyên mục 05</p>
             <h3>Viết</h3>
             <p>Thực hành viết đoạn và bài hoàn chỉnh với tiêu chí rõ ràng, bám sát yêu cầu đề.</p>
-            <span class="lesson-link">Mở chuyên mục</span>
           </a>
         </div>
       </section>
