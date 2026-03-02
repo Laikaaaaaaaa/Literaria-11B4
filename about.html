@@ -10,6 +10,22 @@
   <style>
     body { opacity: 0; transition: opacity 0.6s ease; }
     body.page-loaded { opacity: 1; }
+
+    .about-intro {
+      margin-bottom: 2.1rem;
+    }
+
+    .about-block,
+    .about-block.reverse {
+      grid-template-columns: 1fr;
+      gap: 0.8rem;
+      margin-bottom: 2rem;
+      direction: ltr;
+    }
+
+    .about-text {
+      max-width: 860px;
+    }
   </style>
 </head>
 <body>
@@ -38,72 +54,56 @@
       <section class="section">
         <div class="section-title fade-in">
           <h2>Về chúng tôi</h2>
-          <p>Một lớp học, một hành trình, nhiều câu chuyện</p>
+          <p>11B4 và một dự án nhỏ để giữ lại những điều không muốn quên</p>
         </div>
 
         <div class="about-intro fade-in">
           <p>
-            Chúng tôi là 11B4 — một tập thể không hoàn hảo nhưng luôn cố gắng để mỗi ngày ở trường
-            trở nên ý nghĩa hơn một chút. Chúng tôi yêu văn chương không phải vì điểm số,
-            mà vì những cảm xúc thật mà nó mang lại.
+            Chúng tôi là lớp 11B4. Website này được tạo như một trang lưu niệm chung cho một năm học nhiều cảm xúc:
+            những giờ học văn, những lần thảo luận còn dang dở, những trang vở có chỗ gạch xoá, và cả những câu chữ
+            đã ở lại trong mỗi người lâu hơn một bài kiểm tra.
           </p>
         </div>
 
-        <!-- Block 1 -->
         <div class="about-block fade-in">
           <div class="about-text">
-            <h3>Tinh thần học tập</h3>
+            <h3>11B4 — một tập thể đang lớn lên</h3>
             <p>
-              Những giờ học Ngữ văn của chúng tôi không chỉ là những bài giảng trên bảng.
-              Đó là những buổi trao đổi, tranh luận, chia sẻ cảm nhận về tác phẩm.
-              Mỗi học sinh đều có quyền nói lên cách hiểu riêng của mình,
-              và điều đó làm cho mỗi tiết học trở nên sống động.
+              11B4 không phải là một lớp hoàn hảo, nhưng là một lớp biết lắng nghe nhau.
+              Từ những bạn nói rất nhiều đến những bạn im lặng hơn, ai cũng có một cách riêng để hiện diện:
+              bằng một ý kiến trong giờ học, một phần việc trong nhóm, hay một câu động viên rất ngắn sau mỗi lần vấp.
             </p>
             <p>
-              Chúng tôi tin rằng văn chương không phải để thuộc lòng —
-              mà để cảm, để hiểu, và để sống cùng nó.
+              Có lẽ điều quý nhất của năm học này không nằm ở thành tích,
+              mà ở việc chúng tôi đã học cách đi cùng nhau — chậm cũng được, miễn là không bỏ ai lại phía sau.
             </p>
-          </div>
-          <div class="about-image">
-            <div class="placeholder">Hình ảnh lớp học</div>
-            <!-- Thay thế bằng: <img src="images/class-01.jpg" alt="Lớp học"> -->
           </div>
         </div>
 
-        <!-- Block 2 -->
         <div class="about-block reverse fade-in">
           <div class="about-text">
-            <h3>Sáng tạo và kết nối</h3>
+            <h3>Dự án Literaria</h3>
             <p>
-              Ngoài những bài học trên lớp, chúng tôi còn cùng nhau thực hiện nhiều dự án nhỏ:
-              làm phim ngắn, vẽ tranh minh họa tác phẩm, viết nhật ký cảm xúc,
-              và xây dựng website này như một cách để ghi lại những gì đã trải qua.
+              Literaria bắt đầu từ một ý tưởng rất giản dị: tạo một nơi để bài học văn không dừng lại trên lớp.
+              Từ đó, từng trang nội dung được ghép lại bằng công sức của cả lớp: người viết, người sửa, người làm slide,
+              người quay video, người thêm từng đường link nhỏ.
             </p>
             <p>
-              Mỗi sản phẩm đều mang dấu ấn của cả nhóm —
-              từ ý tưởng, đến thảo luận, đến hoàn thành.
+              Dự án này vì thế không chỉ là sản phẩm học tập, mà là dấu mốc của tinh thần cộng tác:
+              mỗi cá nhân góp một phần, để cuối cùng thành một tiếng nói chung của 11B4.
             </p>
-          </div>
-          <div class="about-image">
-            <div class="placeholder">Hình ảnh hoạt động nhóm</div>
-            <!-- Thay thế bằng: <img src="images/class-02.jpg" alt="Hoạt động nhóm"> -->
           </div>
         </div>
 
-        <!-- Block 3 -->
         <div class="about-block fade-in">
           <div class="about-text">
-            <h3>Kỷ niệm và cảm xúc</h3>
+            <h3>Một lời gửi lại</h3>
             <p>
-              Những bức ảnh, những đoạn video, những câu nói vui —
-              tất cả đều là một phần của kỷ niệm mà chúng tôi muốn lưu giữ.
-              Website này không chỉ là một bài tập —
-              mà là một cuốn sổ tay kỷ niệm số hóa của cả lớp.
+              Văn chương dạy chúng tôi rằng có những điều tưởng rất nhỏ nhưng lại theo mình rất lâu:
+              một câu thơ đúng lúc, một đoạn văn chạm đến nỗi niềm, một tiết học khiến ta nhìn đời dịu hơn.
+              Chúng tôi mong khi nhìn lại website này, mỗi người sẽ nhớ rằng mình đã từng có một quãng tuổi trẻ đẹp:
+              đã học, đã tin, đã cố gắng, và đã thương nhau bằng những điều bình dị nhất.
             </p>
-          </div>
-          <div class="about-image">
-            <div class="placeholder">Hình ảnh tập thể</div>
-            <!-- Thay thế bằng: <img src="images/class-03.jpg" alt="Tập thể lớp"> -->
           </div>
         </div>
 
