@@ -84,8 +84,29 @@ body::after {
   border: 1px solid rgba(74, 103, 65, 0.22);
   border-radius: 12px;
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
-  padding: 0.85rem 0.9rem;
+  padding: 0.95rem 0.9rem 0.85rem;
   z-index: 2200;
+}
+
+.webview-warning-dismiss {
+  position: absolute;
+  top: 0.38rem;
+  right: 0.45rem;
+  border: 0;
+  background: transparent;
+  color: #6f705f;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.webview-warning-dismiss:hover {
+  background: rgba(74, 103, 65, 0.12);
+  color: #3c4d35;
 }
 
 .webview-warning-message {
@@ -93,6 +114,7 @@ body::after {
   color: #3d3d33;
   line-height: 1.45;
   margin-bottom: 0.65rem;
+  padding-right: 1.7rem;
 }
 
 .webview-warning-actions {
@@ -103,12 +125,16 @@ body::after {
 
 .webview-warning-open,
 .webview-warning-copy,
-.webview-warning-close {
+.webview-warning-dismiss {
+  font-family: inherit;
+}
+
+.webview-warning-open,
+.webview-warning-copy {
   border: 0;
   border-radius: 8px;
   padding: 0.42rem 0.72rem;
   font-size: 0.84rem;
-  font-family: inherit;
   cursor: pointer;
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
@@ -123,14 +149,8 @@ body::after {
   color: #2f4030;
 }
 
-.webview-warning-close {
-  background: rgba(74, 103, 65, 0.12);
-  color: #3e4f36;
-}
-
 .webview-warning-open:hover,
-.webview-warning-copy:hover,
-.webview-warning-close:hover {
+.webview-warning-copy:hover {
   transform: translateY(-1px);
   opacity: 0.92;
 }

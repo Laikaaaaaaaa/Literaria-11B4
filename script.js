@@ -37,17 +37,17 @@ document.addEventListener('DOMContentLoaded', function () {
     popup.setAttribute('aria-label', 'Khuyến nghị mở bằng trình duyệt');
 
     popup.innerHTML = `
+      <button type="button" class="webview-warning-dismiss" aria-label="Đóng thông báo">×</button>
       <div class="webview-warning-message">Ứng dụng hoạt động tốt nhất trên trình duyệt.</div>
       <div class="webview-warning-actions">
         <button type="button" class="webview-warning-open">Mở bằng trình duyệt</button>
         <button type="button" class="webview-warning-copy">Sao chép liên kết</button>
-        <button type="button" class="webview-warning-close" aria-label="Đóng thông báo">Đóng</button>
       </div>
     `;
 
     document.body.appendChild(popup);
 
-    const closeButton = popup.querySelector('.webview-warning-close');
+    const closeButton = popup.querySelector('.webview-warning-dismiss');
     if (closeButton) {
       closeButton.addEventListener('click', function () {
         popup.remove();
