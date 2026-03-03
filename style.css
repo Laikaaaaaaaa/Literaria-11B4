@@ -15,6 +15,8 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
@@ -31,6 +33,20 @@ body {
   overflow-x: hidden;
   position: relative;
   isolation: isolate;
+}
+
+.is-webview body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.is-webview body::before,
+.is-webview body::after {
+  animation: none;
+}
+
+.is-webview .navbar {
+  backdrop-filter: none;
 }
 
 body > * {
@@ -363,6 +379,7 @@ p {
 .page-content {
   padding-top: 100px;
   min-height: 100vh;
+  min-height: 100svh;
 }
 
 /* --- SECTION SPACING --- */
@@ -448,6 +465,7 @@ p {
   align-items: center;
   justify-content: center;
   min-height: calc(100vh - 110px);
+  min-height: calc(100svh - 110px);
   text-align: center;
   padding: 3.4rem 2rem;
   overflow: hidden;
@@ -2170,11 +2188,16 @@ blockquote cite {
     padding-top: 80px;
   }
 
+  .is-webview .page-content {
+    padding-top: calc(80px + env(safe-area-inset-top, 0px));
+  }
+
   h1 { font-size: 2rem; }
   h2 { font-size: 1.6rem; }
 
   .home-hero {
     min-height: calc(100vh - 90px);
+    min-height: calc(100svh - 90px);
     padding: 2rem 0.55rem 1.55rem;
     gap: 0.25rem;
   }
@@ -2560,6 +2583,10 @@ blockquote cite {
     width: 95%;
     border-radius: 8px;
   }
+}
+
+.is-webview .page-content {
+  padding-top: calc(100px + env(safe-area-inset-top, 0px));
 }
 
 @media (max-width: 480px) {

@@ -111,7 +111,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  if (isLikelyInAppWebView()) {
+  const isEmbeddedWebView = isLikelyInAppWebView();
+  if (isEmbeddedWebView) {
+    document.documentElement.classList.add('is-webview');
     showWebViewWarning();
   }
 
