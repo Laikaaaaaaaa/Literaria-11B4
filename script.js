@@ -4,6 +4,70 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
+  // --- WebView detection warning ---
+  function isLikelyInAppWebView() {
+    const userAgent = navigator.userAgent || '';
+    const isAndroid = /Android/i.test(userAgent);
+    const isIOS = /iPhone|iPad|iPod/i.test(userAgent);
+
+    const isAndroidWebView = isAndroid && (
+      /\bwv\b/i.test(userAgent) ||
+      /; wv\)/i.test(userAgent) ||
+      /Version\/\d+\.\d+.*Chrome\//i.test(userAgent) ||
+      /WebView/i.test(userAgent)
+    );
+
+    const isIOSSafari = isIOS && /Safari/i.test(userAgent) && !/CriOS|FxiOS|EdgiOS|OPiOS|YaBrowser/i.test(userAgent);
+    const isIOSWebView = isIOS && /AppleWebKit/i.test(userAgent) && !isIOSSafari;
+
+    const inAppBrowserTokens = /FBAN|FBAV|Instagram|Line\/|MicroMessenger|Zalo|TikTok|Pinterest|Snapchat|GSA\//i.test(userAgent);
+
+    return isAndroidWebView || isIOSWebView || inAppBrowserTokens;
+  }
+
+  function showWebViewWarning() {
+    if (document.querySelector('.webview-warning')) {
+      return;
+    }
+
+    const popup = document.createElement('div');
+    popup.className = 'webview-warning';
+    popup.setAttribute('role', 'dialog');
+    popup.setAttribute('aria-live', 'polite');
+    popup.setAttribute('aria-label', 'Khuyến nghị mở bằng trình duyệt');
+
+    popup.innerHTML = `
+      <div class="webview-warning-message">Ứng dụng hoạt động tốt nhất trên trình duyệt.</div>
+      <div class="webview-warning-actions">
+        <a class="webview-warning-open" href="${window.location.href}" target="_blank" rel="noopener noreferrer">Mở bằng trình duyệt</a>
+        <button type="button" class="webview-warning-close" aria-label="Đóng thông báo">Đóng</button>
+      </div>
+    `;
+
+    document.body.appendChild(popup);
+
+    const closeButton = popup.querySelector('.webview-warning-close');
+    if (closeButton) {
+      closeButton.addEventListener('click', function () {
+        popup.remove();
+      });
+    }
+
+    const openButton = popup.querySelector('.webview-warning-open');
+    if (openButton) {
+      openButton.addEventListener('click', function () {
+        const openedWindow = window.open(window.location.href, '_blank', 'noopener,noreferrer');
+        if (!openedWindow) {
+          window.location.href = window.location.href;
+        }
+      });
+    }
+  }
+
+  if (isLikelyInAppWebView()) {
+    showWebViewWarning();
+  }
+
   // --- Navbar scroll effect ---
   const navbar = document.querySelector('.navbar');
   if (navbar) {

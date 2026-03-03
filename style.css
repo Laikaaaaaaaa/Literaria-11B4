@@ -75,6 +75,68 @@ body::after {
   animation: patternDrift 28s linear infinite;
 }
 
+.webview-warning {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  width: min(360px, calc(100vw - 2rem));
+  background: rgba(255, 251, 240, 0.97);
+  border: 1px solid rgba(74, 103, 65, 0.22);
+  border-radius: 12px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
+  padding: 0.85rem 0.9rem;
+  z-index: 2200;
+}
+
+.webview-warning-message {
+  font-size: 0.92rem;
+  color: #3d3d33;
+  line-height: 1.45;
+  margin-bottom: 0.65rem;
+}
+
+.webview-warning-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.webview-warning-open,
+.webview-warning-close {
+  border: 0;
+  border-radius: 8px;
+  padding: 0.42rem 0.72rem;
+  font-size: 0.84rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.webview-warning-open {
+  background: #4a6741;
+  color: #f6f4ef;
+}
+
+.webview-warning-close {
+  background: rgba(74, 103, 65, 0.12);
+  color: #3e4f36;
+}
+
+.webview-warning-open:hover,
+.webview-warning-close:hover {
+  transform: translateY(-1px);
+  opacity: 0.92;
+}
+
+@media (max-width: 480px) {
+  .webview-warning {
+    right: 0.7rem;
+    left: 0.7rem;
+    width: auto;
+    bottom: 0.7rem;
+  }
+}
+
 @media (min-width: 1024px) {
   body {
     background-image:
