@@ -102,6 +102,7 @@ body::after {
 }
 
 .webview-warning-open,
+.webview-warning-copy,
 .webview-warning-close {
   border: 0;
   border-radius: 8px;
@@ -117,12 +118,18 @@ body::after {
   color: #f6f4ef;
 }
 
+.webview-warning-copy {
+  background: rgba(74, 103, 65, 0.18);
+  color: #2f4030;
+}
+
 .webview-warning-close {
   background: rgba(74, 103, 65, 0.12);
   color: #3e4f36;
 }
 
 .webview-warning-open:hover,
+.webview-warning-copy:hover,
 .webview-warning-close:hover {
   transform: translateY(-1px);
   opacity: 0.92;

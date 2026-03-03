@@ -39,7 +39,8 @@ document.addEventListener('DOMContentLoaded', function () {
     popup.innerHTML = `
       <div class="webview-warning-message">Ứng dụng hoạt động tốt nhất trên trình duyệt.</div>
       <div class="webview-warning-actions">
-        <a class="webview-warning-open" href="${window.location.href}" target="_blank" rel="noopener noreferrer">Mở bằng trình duyệt</a>
+        <button type="button" class="webview-warning-open">Mở bằng trình duyệt</button>
+        <button type="button" class="webview-warning-copy">Sao chép liên kết</button>
         <button type="button" class="webview-warning-close" aria-label="Đóng thông báo">Đóng</button>
       </div>
     `;
@@ -53,14 +54,60 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     }
 
+    function copyCurrentUrl() {
+      const currentUrl = window.location.href;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(currentUrl).then(function () {
+          const message = popup.querySelector('.webview-warning-message');
+          if (message) {
+            message.textContent = 'Đã sao chép liên kết. Hãy mở trình duyệt bạn muốn và dán liên kết.';
+          }
+        }).catch(function () {
+          window.prompt('Sao chép liên kết này để mở bằng trình duyệt:', currentUrl);
+        });
+      } else {
+        window.prompt('Sao chép liên kết này để mở bằng trình duyệt:', currentUrl);
+      }
+    }
+
+    function openInExternalBrowser() {
+      const href = window.location.href;
+      const userAgent = navigator.userAgent || '';
+      const isAndroid = /Android/i.test(userAgent);
+
+      if (isAndroid) {
+        try {
+          const urlObj = new URL(href);
+          const scheme = (urlObj.protocol || 'https:').replace(':', '') || 'https';
+          const intentUrl = `intent://${urlObj.host}${urlObj.pathname}${urlObj.search}${urlObj.hash}#Intent;scheme=${scheme};action=android.intent.action.VIEW;category=android.intent.category.BROWSABLE;S.browser_fallback_url=${encodeURIComponent(href)};end`;
+          window.location.href = intentUrl;
+
+          setTimeout(function () {
+            const openedWindow = window.open(href, '_blank', 'noopener,noreferrer');
+            if (!openedWindow) {
+              copyCurrentUrl();
+            }
+          }, 700);
+          return;
+        } catch (error) {
+          // fallback below
+        }
+      }
+
+      const openedWindow = window.open(href, '_blank', 'noopener,noreferrer');
+      if (!openedWindow) {
+        copyCurrentUrl();
+      }
+    }
+
     const openButton = popup.querySelector('.webview-warning-open');
     if (openButton) {
-      openButton.addEventListener('click', function () {
-        const openedWindow = window.open(window.location.href, '_blank', 'noopener,noreferrer');
-        if (!openedWindow) {
-          window.location.href = window.location.href;
-        }
-      });
+      openButton.addEventListener('click', openInExternalBrowser);
+    }
+
+    const copyButton = popup.querySelector('.webview-warning-copy');
+    if (copyButton) {
+      copyButton.addEventListener('click', copyCurrentUrl);
     }
   }
 
